@@ -33,8 +33,12 @@ public class SolutionTest {
         int t2 = 100;
         int [] r2 = {2, 3};
 
+        int [] n3 = {3, 2, 4};
+        int t3 = 6;
+        int [] r3 = {2, 3};
         assertArrayEquals(r1, solution.twoSum(n1, t1));
         assertArrayEquals(r2, solution.twoSum(n2, t2));
+        assertArrayEquals(r3, solution.twoSum(n3, t3));
     }
 
 } 
