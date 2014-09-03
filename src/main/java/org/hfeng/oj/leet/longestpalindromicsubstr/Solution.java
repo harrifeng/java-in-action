@@ -1,5 +1,4 @@
-package org.hfeng.oj.leet.longestpalindromicsubstr
-
+package org.hfeng.oj.leet.longestpalindromicsubstr;
 
 public class Solution {
     public String longestPalindrome(String s) {
@@ -19,7 +18,8 @@ public class Solution {
             } else {
                 startValue = value[countpartIndex];
             }
-            while (ns.charAt(startValue + 1) == ns.charAt(startValue - 1)) {
+            // MISTAKE HERE
+            while (ns.charAt(i + startValue + 1) == ns.charAt(i - startValue - 1)) {
                 startValue++;
             }
             value[i] = startValue;
@@ -27,7 +27,8 @@ public class Solution {
 
         int maxIndex = 0;
         for (int i = 1; i < ns.length(); i++) {
-            if (value[i]  > value[i-1]) {
+            // MISTAKE HERE
+            if (value[i]  > value[maxIndex]) {
                 maxIndex = i;
             }
         }
