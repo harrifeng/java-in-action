@@ -12,12 +12,7 @@ public class Solution {
         // ^ and $ won't count
         for (int i = 1; i < ns.length() - 1; i++) {
             int countpartIndex = Math.max(0, 2 * pivotIndex - i);
-            int startValue = 0;
-            if (value[countpartIndex] > pivotValue)  {
-                startValue = pivotValue;
-            } else {
-                startValue = value[countpartIndex];
-            }
+            int startValue = Math.min(value[countpartIndex], pivotValue);
             // MISTAKE HERE
             while (ns.charAt(i + startValue + 1) == ns.charAt(i - startValue - 1)) {
                 startValue++;
