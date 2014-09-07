@@ -2,6 +2,7 @@ Regular Expression Matching
 ----------
 + Implement regular expression matching with support for '.' and '*'.
 + Match details
+
   > '.' Matches any single character.
   > '*' Matches zero or more of the preceding element.
   >
@@ -12,9 +13,15 @@ Regular Expression Matching
   >
   > Some examples:
   > isMatch("aa","a") → false
+  >
   > isMatch("aa","aa") → true
+  >
   > isMatch("aaa","aa") → false
+  >
   > isMatch("aa", "a*") → true
+  >
   > isMatch("aa", ".*") → true
+  >
   > isMatch("ab", ".*") → true
+  >
   > isMatch("aab", "c*a*b") → true
