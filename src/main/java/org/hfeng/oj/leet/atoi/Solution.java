@@ -21,6 +21,7 @@ public class Solution {
         int ret = 0;
 
         for (int i = start; i < str.length(); i++) {
+            // USEFUL HERE
             if (Character.isDigit(str.charAt(i))) {
                 if (ret > Integer.MAX_VALUE / 10
                         || (ret == Integer.MAX_VALUE / 10)
