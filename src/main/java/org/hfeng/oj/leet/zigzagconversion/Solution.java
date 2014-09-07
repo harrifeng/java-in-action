@@ -1,26 +1,26 @@
 package org.hfeng.oj.leet.zigzagconversion;
 
 public class Solution {
-    public String convert(String input, int n) {
+    public String convert(String s, int nRows) {
         // MISTAKE HERE
-        if (n < 2) {
-            return input;
+        if (nRows < 2) {
+            return s;
         }
-        StringBuilder[] sbs = new StringBuilder[n];
+        StringBuilder[] sbs = new StringBuilder[nRows];
 
         for (int i = 0; i < sbs.length; i++) {
             sbs[i] = new StringBuilder();
         }
 
-        int group = n * 2 - 2;
+        int group = nRows * 2 - 2;
 
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             int pos = i % group;
-            if (pos < n) {
+            if (pos < nRows) {
                 // MISTAKE HERE
-                sbs[pos].append(input.charAt(i));
+                sbs[pos].append(s.charAt(i));
             } else {
-                sbs[group - pos].append(input.charAt(i));
+                sbs[group - pos].append(s.charAt(i));
             }
         }
 
