@@ -15,7 +15,6 @@ public class SolutionTest {
     @Before
     public void before() throws Exception {
         solution = new Solution();
-
     }
 
     @After

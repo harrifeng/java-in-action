@@ -8,8 +8,11 @@ import static org.junit.Assert.assertEquals;
 
 public class SolutionTest {
 
+    Solution solution;
+
     @Before
     public void before() throws Exception {
+        solution = new Solution();
     }
 
     @After

@@ -9,8 +9,11 @@ import static org.junit.Assert.assertTrue;
 
 public class SolutionTest {
 
+    Solution solution;
+
     @Before
     public void before() throws Exception {
+        solution = new Solution();
     }
 
     @After
@@ -22,7 +25,6 @@ public class SolutionTest {
      */
     @Test
     public void testIsPalindrome() throws Exception {
-        Solution solution = new Solution();
         assertTrue(solution.isPalindrome(1221));
         assertTrue(solution.isPalindrome(12321));
         assertTrue(solution.isPalindrome(1));

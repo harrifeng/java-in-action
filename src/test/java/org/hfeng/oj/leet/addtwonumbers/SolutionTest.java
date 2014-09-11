@@ -10,8 +10,11 @@ import static org.junit.Assert.*;
 
 public class SolutionTest {
 
+    Solution solution;
+
     @Before
     public void before() throws Exception {
+        solution = new Solution();
     }
 
     @After
@@ -29,7 +32,7 @@ public class SolutionTest {
     }
 
     private void useTreeArrays(int[]aa, int[]bb, int[]result) {
-        Solution solution = new Solution();
+
         ListNode ha = createList(aa);
         ListNode hb = createList(bb);
         ListNode ret = solution.addTwoNumbers(ha, hb);

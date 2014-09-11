@@ -9,8 +9,11 @@ import static org.junit.Assert.assertTrue;
 
 public class SolutionTest {
 
+    Solution solution;
+
     @Before
     public void before() throws Exception {
+        solution = new Solution();
     }
 
     @After
@@ -22,9 +25,8 @@ public class SolutionTest {
      */
     @Test
     public void testIsMatch() throws Exception {
-        Solution solution = new Solution();
-        org.junit.Assert.assertFalse(solution.isMatch("aa", "a"));
-        org.junit.Assert.assertFalse(solution.isMatch("aaa", "a"));
+        assertFalse(solution.isMatch("aa", "a"));
+        assertFalse(solution.isMatch("aaa", "a"));
 
         assertTrue(solution.isMatch("aa", "aa"));
         assertTrue(solution.isMatch("aa", "a*"));

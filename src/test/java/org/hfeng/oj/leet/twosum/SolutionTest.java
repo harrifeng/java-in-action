@@ -7,9 +7,11 @@ import org.junit.After;
 import static org.junit.Assert.assertArrayEquals;
 
 public class SolutionTest {
+    Solution solution;
 
     @Before
     public void before() throws Exception {
+        solution = new Solution();
     }
 
     @After
@@ -22,7 +24,6 @@ public class SolutionTest {
     @Test
     public void testTwoSum() throws Exception {
 
-        Solution solution = new Solution();
         int[] n1 = {2, 7, 11, 15};
         int t1 = 9;
         int[] r1 = {1, 2};
