@@ -1,0 +1,8 @@
+Remove Duplicates from Sorted Array
+----------
++ Follow up for "Remove Duplicates":
+  What if duplicates are allowed at most *twice*?
++ For example:
+  > Input: A = [1,1,1,2,2,3]
+  >
+  > Output: length = 5, A is now [1,1,2,2,3]
