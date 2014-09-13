@@ -18,11 +18,8 @@ public class SolutionTest {
     public void after() throws Exception {
     }
 
-    /**
-     * Method: convert(String s, int nRows)
-     */
     @Test
-    public void testConvert() throws Exception {
+    public void testSearch() throws Exception {
         int[] a1 = { 4, 5, 6, 7, 1, 2, 3};
         int t1 = 6;
         int r1 = 2; 
