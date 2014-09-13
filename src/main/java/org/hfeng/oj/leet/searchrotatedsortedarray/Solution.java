@@ -2,36 +2,34 @@ package org.hfeng.oj.leet.searchrotatedsortedarray;
 
 public class Solution {
     public int search(int[] A, int target) {
-        if (A.length == 0) {
-            return -1;
-        }
 
-        return ss(A, 0, A.length -1, target);
-    }
+        int left = 0;
+        int right = A.length - 1;
 
-    private int ss(int[] arr, int beg, int end, int target) {
-        if (beg > end) {
-            return -1;
-        }
-
-        if (target == arr[beg]) {
-            return beg;
-        }
-        int mid = (beg + end) / 2;
-
-        if (target > arr[beg]) {
-            if (arr[mid] < arr[beg]) {
-                return ss(arr, beg + 1, mid, target);
-            } else {
-                return ss(arr, beg + 1, end, target);
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (A[mid] == target) {
+                return mid;
             }
-        } else {
-            if (arr[mid] > arr[beg]) {
-                return ss(arr, mid, end, target);
-            } else {
-                return ss(arr, beg + 1, end, target);
-            }
-        }// target and arr[beg]
 
+            if (A[left] <= A[mid]) {
+                // left is small than mid
+                // target is between left and mid,
+                // in this case, left part is MUST the solution.
+                // in all other cases, right part is the solution.
+                if (A[left] <= target && target < A[mid]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                if (A[mid] < target && target <= A[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+        }
+        return -1;
     }
 }
