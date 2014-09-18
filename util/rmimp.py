@@ -20,7 +20,7 @@ class SolutionFile(object):
             res = re.findall(r"public|package", line)
             if len(res) == 0:
                 line = ""
-                sys.stdout.write(line)
+            sys.stdout.write(line)
 
     def show_all(self):
         root_fd = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]
