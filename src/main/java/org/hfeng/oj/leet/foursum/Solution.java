@@ -9,14 +9,15 @@ public class Solution {
         Arrays.sort(num);
         // Assume num.length is bigger than or equal to 4
         for (int i = 0; i < num.length - 2; i++) {
-            if (i > 0 && num[i] == num[i-1]) {
+            if (i > 0 && num[i] == num[i - 1]) {
                 continue;
             }
-            for (int j = i + 1; i < num.length - 1; j++) {
-                if (j > i + 1 && num[j] == num[j-1]) {
+            // MISTAKE HERE
+            for (int j = i + 1; j < num.length - 1; j++) {
+                if (j > i + 1 && num[j] == num[j - 1]) {
                     continue;
                 }
-                
+
                 int beg = j + 1;
                 int end = num.length - 1;
                 while (beg < end) {
@@ -28,7 +29,7 @@ public class Solution {
                         oneRet.add(num[beg]);
                         oneRet.add(num[end]);
                         ret.add(oneRet);
-                        while(beg < end && num[beg] == num[beg+1] && num[end] == num[end-1]) {
+                        while (beg < end && num[beg] == num[beg + 1] && num[end] == num[end - 1]) {
                             beg++;
                             end--;
                         }
