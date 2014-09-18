@@ -11,6 +11,7 @@ public class Solution {
         }
 
         boolean negative = false;
+
         if (str.charAt(start) == '-') {
             negative = true;
             start++;
@@ -19,13 +20,11 @@ public class Solution {
         }
 
         int ret = 0;
-
-        for (int i = start; i < str.length(); i++) {
-            // USEFUL HERE
-            if (Character.isDigit(str.charAt(i))) {
-                if (ret > Integer.MAX_VALUE / 10
-                        || (ret == Integer.MAX_VALUE / 10)
-                        && (str.charAt(i) - '0' > Integer.MAX_VALUE % 10)) {
+        for(int i = start; i < str.length(); i++) {
+            if (str.charAt(i) - '0' >= 0 && str.charAt(i) - '0' <= 9) {
+                if (ret >  Integer.MAX_VALUE / 10
+                    || (ret == Integer.MAX_VALUE / 10
+                        && (str.charAt(i) - '0') > Integer.MAX_VALUE % 10)) {
                     return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
                 }
                 ret = ret * 10 + str.charAt(i) - '0';
