@@ -20,13 +20,15 @@ public class Solution {
         }
 
         int ret = 0;
-        for(int i = start; i < str.length(); i++) {
+        for (int i = start; i < str.length(); i++) {
+            // USEFUL HERE
             if (Character.isDigit(str.charAt(i))) {
-                if (ret >  Integer.MAX_VALUE / 10
-                    || (ret == Integer.MAX_VALUE / 10
+                if (ret > Integer.MAX_VALUE / 10
+                        || (ret == Integer.MAX_VALUE / 10
                         && Character.digit(str.charAt(i), 10) > Integer.MAX_VALUE % 10)) {
                     return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
                 }
+                // USEFUL HERE
                 ret = ret * 10 + Character.digit(str.charAt(i), 10);
             } else {
                 break;
