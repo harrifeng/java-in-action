@@ -15,11 +15,8 @@ public class Solution {
 
         for (int i = 1; i < ns.length() - 1; i++) {
             int mirror = 2 * maxIndex - i;
-            int startV = 0;
-            // stat Value can be bigger
-            if (mirror > 0) {
-                startV = (maxPos > range[mirror]) ? range[mirror] : (maxPos - i);
-            }
+            // MISTAKE HERE
+            int startV = (maxPos > i) ? Math.min(maxPos - i, range[mirror]) : 0;
 
             while (ns.charAt(i - startV) == ns.charAt(i + startV)) {
                 startV++;
