@@ -31,6 +31,7 @@ public class SolutionTest {
         assertEquals("a", solution.longestPalindrome("a"));
         assertEquals("bcb", solution.longestPalindrome("abcbe"));
         assertEquals("aaabaaa", solution.longestPalindrome("aaabaaaa"));
+        assertEquals("aaabaaa", solution.longestPalindrome("aaaaabaaa"));
     }
 
 
