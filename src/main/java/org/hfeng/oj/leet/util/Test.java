@@ -9,4 +9,8 @@ public class Test {
 
         System.out.println(ii);
     }
+
+    public void removeStr(String s) {
+
+    }
 }

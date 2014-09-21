@@ -20,6 +20,8 @@ public class SolutionTest {
     @Test
     public void testGetPermutation() throws Exception {
         assertEquals("123", solution.getPermutation(3, 1));
-//        assertEquals("213", solution.getPermutation(3, 3));
+        assertEquals("213", solution.getPermutation(3, 3));
+        assertEquals("3124", solution.getPermutation(4, 13));
+        assertEquals("123569784", solution.getPermutation(9, 166));
     }
 }
