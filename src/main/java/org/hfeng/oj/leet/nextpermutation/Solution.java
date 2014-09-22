@@ -7,45 +7,38 @@ public class Solution {
         }
 
         int i, j;
-        // From back to front, find the first
-        // one to break ascending
         for (i = num.length - 2; i >= 0; i--) {
             if (num[i] < num[i + 1]) {
                 break;
             }
         }
-        // if all ascending, it is the biggest
-        // number. Reverse and return
         if (i == -1) {
-            reverseArray(num, 0);
+            // biggest
+            reverseArray(num, 0, num.length - 1);
             return;
         }
-
-        // From back to front, find the first one
-        // that is bigger than i
         for (j = num.length - 1; j > i; j--) {
             if (num[j] > num[i]) {
                 break;
             }
         }
-
-        swapArrayElement(num, i, j);
-        //reverse the one bigger than i
-        reverseArray(num, i + 1);
+        swap(num, i, j);
+        // MISTAKE HERE
+        reverseArray(num, i + 1, num.length - 1);
+        return;
     }
 
-    private void reverseArray(int[] num, int beg) {
-        int end = num.length - 1;
+    private void swap(int[] arr, int first, int second) {
+        int tmp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = tmp;
+    }
+
+    private void reverseArray(int[] arr, int beg, int end) {
         while (beg < end) {
-            swapArrayElement(num, beg, end);
+            swap(arr, beg, end);
             beg++;
             end--;
         }
-    }
-
-    private void swapArrayElement(int[] num, int a, int b) {
-        int tmp = num[a];
-        num[a] = num[b];
-        num[b] = tmp;
     }
 }
