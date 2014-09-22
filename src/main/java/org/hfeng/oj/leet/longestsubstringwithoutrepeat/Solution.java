@@ -8,16 +8,17 @@ public class Solution {
         Arrays.fill(index, -1);
         int maxLen = 0;
         int len = 0;
+
         for (int i = 0; i < s.length(); i++) {
-            if (index[s.charAt(i)] != -1) {
-                maxLen = Math.max(maxLen, len);
+            if (index[s.charAt(i)]  >= 0) {
+                maxLen = Math.max(len, maxLen);
                 len = 0;
                 i = index[s.charAt(i)] + 1;
                 Arrays.fill(index, -1);
             }
-            len++;
             index[s.charAt(i)] = i;
+            len++;
         }
-        return Math.max(maxLen, len);
+        return Math.max(len, maxLen);
     }
 }
