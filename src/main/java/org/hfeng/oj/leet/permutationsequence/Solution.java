@@ -1,23 +1,17 @@
 package org.hfeng.oj.leet.permutationsequence;
-
-import java.util.Arrays;
-
 public class Solution {
     public String getPermutation(int n, int k) {
-        StringBuilder input = new StringBuilder("123456789".substring(0, n));
-        //StringBuilder ret = new StringBuilder();
-        char[] tmp = new char[input.length()];
-        Arrays.fill(tmp, ' ');
-        String ret2 = new String(tmp);
-        StringBuilder ret = new StringBuilder(ret2);
+        StringBuilder sb = new StringBuilder("123456789".substring(0, n));
+        StringBuilder ret = new StringBuilder();
 
-        int total = factorial(n);
-        for (int i = 0; i < n; i++) {
-            total /= (n - i);
-            int index = (k - 1) / total;
-            ret.setCharAt(i, input.charAt(index));
-            input.deleteCharAt(index);
-            k -= index * total;
+        int sum = factorial(n);
+
+        for (int i = n; i >= 1; i--) {
+            sum /= i;
+            int d = (k - 1)/ sum;
+            k = k - d * sum;
+            ret.append(sb.charAt(d));
+            sb.deleteCharAt(d);
         }
         return ret.toString();
     }
@@ -29,4 +23,13 @@ public class Solution {
         }
         return ret;
     }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        System.out.println(s.factorial(1));
+        System.out.println(s.factorial(2));
+        System.out.println(s.factorial(3));
+        System.out.println(s.factorial(4));
+    }
+
 }
