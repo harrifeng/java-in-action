@@ -6,14 +6,13 @@ public class Solution {
             return 0;
         }
 
-        // anything Less Than Or Equal to index are unique
-        int index = 0;
-        // MISTAKE HERE
+        int pivot = 0;
         for (int i = 1; i < A.length; i++) {
-            if (A[index] != A[i]) {
-                A[++index] = A[i];
+            if (A[pivot] == A[i]) {
+            } else {
+                A[++pivot] = A[i];
             }
         }
-        return index + 1;
+        return pivot+1;
     }
 }
