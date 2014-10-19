@@ -25,7 +25,9 @@ class SolutionFile(object):
     def show_all(self):
         root_fd = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]
         leet_fd = os.path.join(root_fd, ('src/main/java/org/hfeng/oj/leet'))
-        for i, p in enumerate(os.listdir(leet_fd)):
+        files = os.listdir(leet_fd)
+        files.sort()
+        for i, p in enumerate(files):
             print i, p
 
 
