@@ -2,24 +2,22 @@ package org.hfeng.oj.leet.removeduplicatefromsortedarraytwo;
 
 public class Solution {
     public int removeDuplicates(int[] A) {
-        if (A.length == 0) {
-            return 0;
+        if (A.length <= 2) {
+            return A.length;
         }
-
         int index = 0;
-        int count = 1;
-
+        int sum = 0;
         for (int i = 1; i < A.length; i++) {
-            if (A[index] != A[i]) {
+            if (A[i] != A[index]) {
                 A[++index] = A[i];
-                count = 1;
+                sum = 0;
             } else {
-                count++;
-                if (count == 2) {
+                if (sum == 0) {
                     A[++index] = A[i];
+                    sum++;
                 }
             }
         }
-        return index + 1;
+        return index+1;
     }
 }
