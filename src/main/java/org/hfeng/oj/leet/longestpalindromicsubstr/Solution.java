@@ -1,59 +1,53 @@
 package org.hfeng.oj.leet.longestpalindromicsubstr;
 
-import java.lang.StringBuilder;
-
 public class Solution {
     public String longestPalindrome(String s) {
-        if (s.length() == 0) {
-            return "";
+        if (s.length() <= 1) {
+            return s;
         }
-        String ns = convert(s);
-        int[] range = new int[ns.length()];
-
-        int maxIndex = 0;
+        String ns = processString(s);
+        int maxCenter = 0;
         int maxPos = 0;
-
-        for (int i = 1; i < ns.length() - 1; i++) {
-            int mirror = 2 * maxIndex - i;
-            // MISTAKE HERE
-            int startV = (maxPos > i) ? Math.min(maxPos - i, range[mirror]) : 0;
-
-            while (ns.charAt(i - startV) == ns.charAt(i + startV)) {
+        int[] count = new int[ns.length()];
+        for (int i = 1; i < count.length - 1; i++) {
+            int mirror = 2 * maxCenter - i;
+            int startV = 0;
+            if (i < maxPos) {
+                startV = Math.min(maxPos - i, count[mirror]);
+            }
+            while (ns.charAt(i + startV) == ns.charAt(i - startV)) {
                 startV++;
             }
-            range[i] = startV;
-
-            if (startV > maxPos) {
-                maxPos = startV;
-                maxIndex = i;
+            count[i] = startV - 1;
+            if (count[i] + i > maxPos) {
+                maxPos = count[i] + i;
+                maxCenter = i;
             }
         }
 
-        int target = 0;
-        for (int i = 1; i < ns.length() - 1; i++) {
-            if (range[i] > range[target]) {
+        int target = 1;
+        for (int i = 1; i < count.length -1; i++) {
+            if (count[i] > count[target]) {
                 target = i;
             }
         }
 
         StringBuilder ret = new StringBuilder();
-        // MISTAKE HERE
-        for (int i = target - range[target] + 1; i < target + range[target]; i++) {
-            char c = ns.charAt(i);
-            if (c != '^' && c != '#' && c != '$') {
-                ret.append(c);
+        for (int i = target - count[target]; i <= target + count[target]; i++) {
+            if (ns.charAt(i) != '#') {
+                ret.append(ns.charAt(i));
             }
         }
         return ret.toString();
     }
 
-    private String convert(String str) {
-        StringBuilder sb = new StringBuilder("^#");
-        for (int i = 0; i < str.length(); i++) {
-            sb.append(str.charAt(i));
-            sb.append("#");
+    public String processString(String s) {
+        StringBuilder sb =  new StringBuilder("^#");
+        for (int i = 0; i < s.length(); i++) {
+            sb.append(s.charAt(i));
+            sb.append('#');
         }
-        sb.append("$");
+        sb.append('$');
         return sb.toString();
     }
 }
