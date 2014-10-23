@@ -1,38 +1,34 @@
 package org.hfeng.oj.leet.mediantwosortedarrays;
-
 import java.util.Arrays;
 
 public class Solution {
     public double findMedianSortedArrays(int A[], int B[]) {
         int sum = A.length + B.length;
         if (sum % 2 == 1) {
-            return findKth(A, B, sum / 2 + 1);
+            return findNth(A, B, sum / 2 + 1);
         } else {
-            return (findKth(A, B, sum / 2) + findKth(A, B, sum / 2 + 1)) / 2.0;
+            return (findNth(A, B, sum / 2) + findNth(A, B, sum / 2 + 1)) / 2.0;
         }
     }
-
-    private int findKth(int A[], int B[], int k) {
+    private int findNth(int A[], int B[], int n) {
         if (A.length > B.length) {
-            return findKth(B, A, k);
+            return findNth(B, A, n);
         }
         if (A.length == 0) {
-            return B[k-1];
+            return B[n-1];
         }
         if (B.length == 0) {
-            return A[k-1];
+            return A[n-1];
         }
-        if (k == 1) {
+        if (n == 1) {
             return Math.min(A[0], B[0]);
         }
-
-        int partA = Math.min(k/2, A.length);
-        int partB = k - partA;
-
+        int partA = Math.min(n/2, A.length);
+        int partB = n - partA;
         if (A[partA - 1] < B[partB - 1]) {
-            return findKth(Arrays.copyOfRange(A, partA, A.length), B, k - partA);
+            return findNth(Arrays.copyOfRange(A, partA, A.length), B, n - partA);
         } else {
-            return findKth(A, Arrays.copyOfRange(B, partB, B.length), k - partB);
+            return findNth(A, Arrays.copyOfRange(B, partB, B.length), n - partB);
         }
     }
 }
