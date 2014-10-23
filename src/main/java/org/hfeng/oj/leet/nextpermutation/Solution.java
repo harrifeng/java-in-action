@@ -1,40 +1,41 @@
 package org.hfeng.oj.leet.nextpermutation;
-
 public class Solution {
     public void nextPermutation(int[] num) {
         if (num.length <= 1) {
-            return;
+            return ;
         }
+        int pivot = -1;
 
-        int i, j;
-        for (i = num.length - 2; i >= 0; i--) {
-            if (num[i] < num[i + 1]) {
+        for (int i = num.length - 1; i > 0; i--) {
+            if (num[i-1]  < num[i]) {
+                pivot = i - 1;
                 break;
             }
         }
-        if (i == -1) {
-            // biggest
-            reverseArray(num, 0, num.length - 1);
+        // Largest order, reverse to get the result
+        if (pivot == -1) {
+            reverse(num, 0, num.length - 1);
             return;
         }
-        for (j = num.length - 1; j > i; j--) {
-            if (num[j] > num[i]) {
+        int rightPivot = pivot + 1;
+        for (int j = num.length - 1; j > pivot; j--) {
+            if (num[j] > num[pivot]) {
+                // rightPivot the smallest one that is bigger than pivot
+                rightPivot = j;
                 break;
             }
         }
-        swap(num, i, j);
-        // MISTAKE HERE
-        reverseArray(num, i + 1, num.length - 1);
+        swap(num, pivot, rightPivot);
+        reverse(num, pivot + 1, num.length - 1);
         return;
     }
 
-    private void swap(int[] arr, int first, int second) {
-        int tmp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = tmp;
+    private void swap(int[] arr, int left, int right) {
+        int tmp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = tmp;
     }
-
-    private void reverseArray(int[] arr, int beg, int end) {
+    private void reverse(int [] arr, int beg, int end) {
         while (beg < end) {
             swap(arr, beg, end);
             beg++;
