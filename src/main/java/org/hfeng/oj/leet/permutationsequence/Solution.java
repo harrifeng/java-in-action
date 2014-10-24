@@ -1,32 +1,27 @@
 package org.hfeng.oj.leet.permutationsequence;
-
-import java.util.Arrays;
-
 public class Solution {
+    private static final String NUM= "123456789";
     public String getPermutation(int n, int k) {
-        StringBuilder input = new StringBuilder("123456789".substring(0, n));
-        //StringBuilder ret = new StringBuilder();
-        char[] tmp = new char[input.length()];
-        Arrays.fill(tmp, ' ');
-        String ret2 = new String(tmp);
-        StringBuilder ret = new StringBuilder(ret2);
-
-        int total = factorial(n);
-        for (int i = 0; i < n; i++) {
-            total /= (n - i);
-            int index = (k - 1) / total;
-            ret.setCharAt(i, input.charAt(index));
-            input.deleteCharAt(index);
-            k -= index * total;
+        if (n == 1) {
+            return "1";
+        }
+        StringBuilder ret = new StringBuilder();
+        StringBuilder start = new StringBuilder(NUM.substring(0, n));
+        for (int i = n; i >= 1; i--) {
+            // Be careful here, you should use i, other than n
+            // in the loop!!
+            int target = (k - 1) / factorial(i - 1);
+            k -= target * factorial(i - 1);
+            ret.append(start.charAt(target));
+            start.deleteCharAt(target);
         }
         return ret.toString();
     }
-
-    private int factorial(int n) {
-        int ret = 1;
-        for (int i = 2; i <= n; i++) {
-            ret *= i;
+    private int factorial(int num) {
+        int sum = 1;
+        for (int i = 2; i <= num; i++) {
+            sum *= i;
         }
-        return ret;
+        return sum;
     }
 }
