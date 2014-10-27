@@ -1,19 +1,15 @@
 package org.hfeng.oj.leet.removeduplicatefromsortedarray;
-
 public class Solution {
     public int removeDuplicates(int[] A) {
-        if (A.length == 0) {
-            return 0;
+        if (A.length <= 1) {
+            return A.length;
         }
-
-        // anything Less Than Or Equal to index are unique
-        int index = 0;
-        // MISTAKE HERE
+        int start = 0;
         for (int i = 1; i < A.length; i++) {
-            if (A[index] != A[i]) {
-                A[++index] = A[i];
+            if (A[i] != A[i - 1]) {
+                A[++start] = A[i];
             }
         }
-        return index + 1;
+        return start + 1;
     }
 }
