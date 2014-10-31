@@ -19,9 +19,6 @@ public class SolutionTest {
     public void after() throws Exception {
     }
 
-    /**
-     * Method: reverse(int x)
-     */
     @Test
     public void testReverse() throws Exception {
         //TODO: Test goes here...
