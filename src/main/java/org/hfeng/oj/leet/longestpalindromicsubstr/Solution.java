@@ -1,45 +1,52 @@
 package org.hfeng.oj.leet.longestpalindromicsubstr;
+import java.util.*;
 
 public class Solution {
     public String longestPalindrome(String s) {
+        String ns = processStr(s);
+        System.out.printf("%s%n", ns);
 
-        String ns = polishStr(s);
+        int[] count = new int[ns.length()];
+        System.out.printf("%s%n", Arrays.toString(count));
 
-        int[] value = new int[2010];
-
-        int pivotIndex = 0;
-        int pivotValue = 0;
-        // ^ and $ won't count
+        int mostCenter = 0;
+        int mostLocation = 0;
         for (int i = 1; i < ns.length() - 1; i++) {
-            int countpartIndex = Math.max(0, 2 * pivotIndex - i);
-            int startValue = Math.min(value[countpartIndex], pivotValue);
-            // MISTAKE HERE
-            while (ns.charAt(i + startValue + 1) == ns.charAt(i - startValue - 1)) {
-                startValue++;
+            int mirror = 2 * mostCenter - i;
+            int start = 0;
+            if (mostLocation > i) {
+                start = Math.min(count[mirror], mostLocation - i);
             }
-            value[i] = startValue;
+            // Very easy to wrong
+            while (ns.charAt(i+start) == ns.charAt(i-start)) {
+                start++;
+            }
+            count[i] = start - 1;
+        }
+        System.out.printf("%s%n", Arrays.toString(count));
+        int biggest = 0;
+        for (int i = 1; i < count.length - 1; i++) {
+            // Very easy to wrong
+            if (count[i] > count[biggest]) {
+                biggest = i;
+            }
         }
 
-        int maxIndex = 0;
-        for (int i = 1; i < ns.length(); i++) {
-            // MISTAKE HERE
-            if (value[i]  > value[maxIndex]) {
-                maxIndex = i;
-            }
-        }
+        System.out.printf("%d %d\n", biggest, count[biggest]);
 
         StringBuilder sb = new StringBuilder();
-        for (int i = maxIndex - value[maxIndex]; i < maxIndex + value[maxIndex]; i++) {
-            char cs = ns.charAt(i);
-            if (cs != '^' && cs != '$' && cs != '#') {
-                sb.append(cs);
+
+        for(int i = biggest - count[biggest]; i <= biggest + count[biggest]; i++) {
+            char now = ns.charAt(i);
+            if (now != '^' && now != '#' && now != '$') {
+                sb.append(now);
             }
         }
         return sb.toString();
     }
 
-    private String polishStr(String s) {
-        StringBuilder sb = new StringBuilder("^#");
+    private String processStr(String s) {
+        StringBuffer sb = new StringBuffer("^#");
         for (int i = 0; i < s.length(); i++) {
             sb.append(s.charAt(i));
             sb.append("#");
@@ -47,4 +54,4 @@ public class Solution {
         sb.append("$");
         return sb.toString();
     }
-}    
+}
