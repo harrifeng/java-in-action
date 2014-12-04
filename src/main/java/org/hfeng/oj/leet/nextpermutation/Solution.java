@@ -1,51 +1,46 @@
 package org.hfeng.oj.leet.nextpermutation;
-
 public class Solution {
     public void nextPermutation(int[] num) {
         if (num.length <= 1) {
             return;
         }
-
-        int i, j;
-        // From back to front, find the first
-        // one to break ascending
+        int i = 0;
+        int j = 0;
+        // num[a] < num[b], we want a here,
+        // so we use i = num.length - 2 as start
+        // if you use i = num.length - 1 as start,
+        // remember to i-- before swap with j
         for (i = num.length - 2; i >= 0; i--) {
-            if (num[i] < num[i + 1]) {
+            if (num[i] < num[i+1]) {
                 break;
             }
         }
-        // if all ascending, it is the biggest
-        // number. Reverse and return
         if (i == -1) {
-            reverseArray(num, 0);
+            reverseArray(num, 0, num.length - 1);
             return;
         }
 
-        // From back to front, find the first one
-        // that is bigger than i
         for (j = num.length - 1; j > i; j--) {
             if (num[j] > num[i]) {
                 break;
             }
         }
-
-        swapArrayElement(num, i, j);
-        //reverse the one bigger than i
-        reverseArray(num, i + 1);
+        swapArrayMember(num, i , j);
+        reverseArray(num, i + 1, num.length - 1);
+        return;
     }
 
-    private void reverseArray(int[] num, int beg) {
-        int end = num.length - 1;
+    private void swapArrayMember(int[] array, int first, int second) {
+        int tmp = array[first];
+        array[first] = array[second];
+        array[second] = tmp;
+    }
+
+    private void reverseArray(int[] array, int beg, int end) {
         while (beg < end) {
-            swapArrayElement(num, beg, end);
+            swapArrayMember(array, beg, end);
             beg++;
             end--;
         }
-    }
-
-    private void swapArrayElement(int[] num, int a, int b) {
-        int tmp = num[a];
-        num[a] = num[b];
-        num[b] = tmp;
     }
 }
