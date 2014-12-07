@@ -4,12 +4,12 @@ public class Solution {
         if (A.length <= 1) {
             return A.length;
         }
-        int start = 0;
+        int front = 0;
         for (int i = 1; i < A.length; i++) {
-            if (A[i] != A[i - 1]) {
-                A[++start] = A[i];
+            if (A[i] != A[front]) {
+                A[++front] = A[i];
             }
         }
-        return start + 1;
+        return front+1;
     }
 }
