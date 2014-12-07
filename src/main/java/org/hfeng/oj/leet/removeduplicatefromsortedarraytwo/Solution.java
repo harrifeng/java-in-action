@@ -1,23 +1,26 @@
 package org.hfeng.oj.leet.removeduplicatefromsortedarraytwo;
-
 public class Solution {
     public int removeDuplicates(int[] A) {
         if (A.length <= 2) {
             return A.length;
         }
-        int start = 0;
-        int count = 1;
+        int front = 0;
+        int size = 0;
         for (int i = 1; i < A.length; i++) {
-            if (A[i] != A[i-1]) {
-                A[++start] = A[i];
-                count = 1;
+            if (A[front] != A[i]) {
+                // Every time front+ 1 is "Corrupted data", yuo have to give
+                // A[X] value as soon as X over the gap into the corrupted area
+                A[++front] = A[i];
+                size = 0;
             } else {
-                count++;
-                if (count == 2) {
-                    A[++start] = A[i];
+                if (size == 0) {
+                    // Every time front+ 1 is "Corrupted data", yuo have to give
+                    // A[X] value as soon as X over the gap into the corrupted area
+                    A[++front] = A[i];
                 }
+                size++;
             }
         }
-        return start + 1;
+        return front+1;
     }
 }
