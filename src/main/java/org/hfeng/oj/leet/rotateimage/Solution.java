@@ -8,6 +8,7 @@ public class Solution {
                 swapMatrix(matrix, i, j, len - 1 - j, len - 1 - i);
             }
         }
+
         for (int i = 0; i < len / 2; i++) {
             for (int j = 0; j < len; j++) {
                 swapMatrix(matrix, i, j, len - 1 - i, j);
