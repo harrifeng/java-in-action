@@ -7,17 +7,17 @@ public class Solution {
         while (beg <= end) {
             int mid = (beg + end) / 2;
             if (target == A[mid]) {
-                return target;
+                return mid;
             }
 
-            if (A[beg] < A[mid]) {
-                if (A[beg] < target && target < A[mid]) {
-                    end = mid - 1;
+            if (A[beg] <= A[mid]) {
+                if (A[beg] <= target && target < A[mid]) {
+                    end = mid;
                 } else {
-                    beg = mid;
+                    beg = mid + 1;
                 }
             } else {
-                if (A[mid] < target && target < A[end]) {
+                if (A[mid] < target && target <= A[end]) {
                     beg = mid + 1;
                 } else {
                     end = mid;
