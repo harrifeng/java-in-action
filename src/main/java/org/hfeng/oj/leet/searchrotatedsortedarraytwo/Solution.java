@@ -1,31 +1,27 @@
 package org.hfeng.oj.leet.searchrotatedsortedarraytwo;
-
 public class Solution {
     public boolean search(int A[], int target) {
-        int first = 0;
-        int last = A.length - 1;
-
-        while (first <= last) {
-            int mid = (first + last) / 2;
-            if (A[mid] == target) {
+        int beg = 0;
+        int end = A.length - 1;
+        while (beg <= end) {
+            int mid = (beg + end) / 2;
+            if (target == A[mid]) {
                 return true;
             }
-
-            if (A[first] < A[mid]) {
-                if (A[first] <= target && target < A[mid]) {
-                    last = mid;
+            if (A[beg] < A[mid]) {
+                if (A[beg] <= target && target < A[mid]) {
+                    end = mid - 1;
                 } else {
-                    first = mid + 1;
+                    beg = mid;
                 }
-            } else if (A[first] > A[mid]) {
-                if (A[mid] < target && target <= A[last]) {
-                    first = mid + 1;
+            } else if (A[beg] > A[mid]){
+                if (A[mid] < target && target <= A[end]) {
+                    beg = mid + 1;
                 } else {
-                    last = mid;
+                    end = mid;
                 }
             } else {
-                //skip duplicate one
-                first++;
+                beg++;
             }
         }
         return false;

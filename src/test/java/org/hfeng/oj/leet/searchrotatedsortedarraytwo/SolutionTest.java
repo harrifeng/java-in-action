@@ -38,5 +38,9 @@ public class SolutionTest {
         int t4 = 1;
         assertTrue(solution.search(a4, t4));
 
+        int[] a5 = {1, 3, 5};
+        int t5 = 1;
+        assertTrue(solution.search(a5, t5));
+
     }
 }
