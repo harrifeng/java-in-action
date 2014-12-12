@@ -1,0 +1,9 @@
+
+Valid Sudoku
+-------------
++ Determine if a Sudoku is valid:
+  - Every line has 1-9
+  - Every column has 1-9
+  - Every small square has 1-9
++ Note:A valid Sudoku board (partially filled) is not necessarily solvable.
+  Only the filled cells need to be validated.
