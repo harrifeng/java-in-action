@@ -2,10 +2,17 @@ package org.hfeng.tij4.holding;
 
 import java.util.ArrayList;
 
-class Grannysmith extends Apple {}
-class Gala extends Apple {}
-class Fuji extends Apple {}
-class Braeburn extends Apple {}
+class Grannysmith extends Apple {
+}
+
+class Gala extends Apple {
+}
+
+class Fuji extends Apple {
+}
+
+class Braeburn extends Apple {
+}
 
 public class GenericsAndUpcasting {
 
