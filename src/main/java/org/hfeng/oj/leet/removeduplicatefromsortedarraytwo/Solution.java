@@ -5,19 +5,12 @@ public class Solution {
         if (A.length <= 2) {
             return A.length;
         }
-        int start = 0;
-        int count = 1;
-        for (int i = 1; i < A.length; i++) {
-            if (A[i] != A[i-1]) {
-                A[++start] = A[i];
-                count = 1;
-            } else {
-                count++;
-                if (count == 2) {
-                    A[++start] = A[i];
-                }
+        int start = 2;
+        for (int i = 2; i < A.length; i++) {
+            if (A[start - 2] != A[i]) {
+                A[start++] = A[i];
             }
         }
-        return start + 1;
+        return start;
     }
 }
