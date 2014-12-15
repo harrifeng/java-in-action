@@ -1,39 +1,34 @@
 package org.hfeng.oj.leet.atoi;
-
 public class Solution {
     public int atoi(String str) {
         if (str.length() == 0) {
             return 0;
         }
-        int start = 0;
-        while (str.charAt(start) == ' ') {
-            start++;
+        int beg = 0;
+        while (str.charAt(beg) == ' ') {
+            beg++;
         }
-
-        boolean negative = false;
-
-        if (str.charAt(start) == '-') {
-            negative = true;
-            start++;
-        } else if (str.charAt(start) == '+') {
-            start++;
+        boolean neg = false;
+        if (str.charAt(beg) == '+') {
+            beg++;
+        } else if (str.charAt(beg) == '-') {
+            beg++;
+            neg = true;
         }
 
         int ret = 0;
-        for (int i = start; i < str.length(); i++) {
-            // USEFUL HERE
-            if (Character.isDigit(str.charAt(i))) {
+        for (int i = beg; i < str.length(); i++) {
+            char now = str.charAt(i);
+            if (Character.isDigit(now)) {
                 if (ret > Integer.MAX_VALUE / 10
-                        || (ret == Integer.MAX_VALUE / 10
-                        && Character.digit(str.charAt(i), 10) > Integer.MAX_VALUE % 10)) {
-                    return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+                    || (ret == Integer.MAX_VALUE / 10 && now - '0' > Integer.MAX_VALUE % 10)) {
+                    return neg ? Integer.MIN_VALUE : Integer.MAX_VALUE;
                 }
-                // USEFUL HERE
-                ret = ret * 10 + Character.digit(str.charAt(i), 10);
+                ret = ret * 10 + (now - '0');
             } else {
                 break;
             }
         }
-        return negative ? (-1) * ret : ret;
+        return neg ? (-1) * ret : ret;
     }
 }
