@@ -1,21 +1,16 @@
 package org.hfeng.oj.leet.foursum;
-
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Solution {
     public List<List<Integer>> fourSum(int[] num, int target) {
-        List<List<Integer>> ret  = new ArrayList<List<Integer>>();
-
         Arrays.sort(num);
-
+        List<List<Integer>> ret = new ArrayList<List<Integer>>();
         for (int i = 0; i < num.length - 3; i++) {
-            if (i > 0 && num[i] == num[i - 1]) {
+            if (i > 0 && num[i] == num[i-1]) {
                 continue;
             }
             for (int j = i + 1; j < num.length - 2; j++) {
-                if (j > i + 1 && num[j] == num[j - 1]) {
+                if (j > i + 1 && num[j] == num[j-1]) {
                     continue;
                 }
                 int beg = j + 1;
