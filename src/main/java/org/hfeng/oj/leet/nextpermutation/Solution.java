@@ -2,50 +2,37 @@ package org.hfeng.oj.leet.nextpermutation;
 
 public class Solution {
     public void nextPermutation(int[] num) {
-        if (num.length <= 1) {
-            return;
-        }
-
-        int i, j;
-        // From back to front, find the first
-        // one to break ascending
-        for (i = num.length - 2; i >= 0; i--) {
-            if (num[i] < num[i + 1]) {
+        int i = 0;
+        for (i = num.length - 1; i > 0; i--) {
+            if (num[i-1] < num[i]) {
                 break;
             }
         }
-        // if all ascending, it is the biggest
-        // number. Reverse and return
-        if (i == -1) {
-            reverseArray(num, 0);
+        if (i == 0) {
+            reverseArray(num, 0, num.length - 1);
             return;
         }
-
-        // From back to front, find the first one
-        // that is bigger than i
-        for (j = num.length - 1; j > i; j--) {
-            if (num[j] > num[i]) {
+        int pivot = i - 1;
+        for (i = num.length - 1; i > pivot; i--) {
+            if (num[i] > num[pivot]) {
                 break;
             }
         }
-
-        swapArrayElement(num, i, j);
-        //reverse the one bigger than i
-        reverseArray(num, i + 1);
+        swapArray(num, pivot, i);
+        reverseArray(num, pivot + 1, num.length - 1);
+        return;
     }
-
-    private void reverseArray(int[] num, int beg) {
-        int end = num.length - 1;
+    private void swapArray(int[] arr, int a, int b) {
+        int tmp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = tmp;
+    }
+    private void reverseArray(int[] arr, int beg, int end) {
         while (beg < end) {
-            swapArrayElement(num, beg, end);
+            swapArray(arr, beg, end);
             beg++;
             end--;
         }
     }
 
-    private void swapArrayElement(int[] num, int a, int b) {
-        int tmp = num[a];
-        num[a] = num[b];
-        num[b] = tmp;
-    }
 }
