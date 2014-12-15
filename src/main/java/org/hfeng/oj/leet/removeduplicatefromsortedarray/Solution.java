@@ -6,7 +6,7 @@ public class Solution {
         }
         int start = 0;
         for (int i = 1; i < A.length; i++) {
-            if (A[i] != A[i - 1]) {
+            if (A[start] != A[i]) {
                 A[++start] = A[i];
             }
         }
