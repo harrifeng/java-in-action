@@ -6,20 +6,22 @@ public class Solution {
         }
         if (p.length() == 1) {
             return (s.length() == 1
-                    && (p.charAt(0) == '.' || p.charAt(0) == s.charAt(0)));
+                    && (p.charAt(0) == '.'
+                        || s.charAt(0) == p.charAt(0)));
         }
-        // p is bigger than 1 here
-        if (p.charAt(1) != '*') {
-            return (s.length() >= 1
-                    && (p.charAt(0) == '.' || p.charAt(0) == s.charAt(0))
-                    && isMatch(s.substring(1), p.substring(1)));
-        } else {
+        if (p.charAt(1) == '*') {
             if (isMatch(s, p.substring(2))) {
                 return true;
             }
-            return (s.length() >= 1
-                    && (p.charAt(0) == '.' || p.charAt(0) == s.charAt(0))
+            return (s.length() >=1
+                    && (p.charAt(0) == '.'
+                        || s.charAt(0) == p.charAt(0))
                     && isMatch(s.substring(1), p));
+        } else {
+            return (s.length() >= 1
+                    && (p.charAt(0) == '.'
+                        || s.charAt(0) == p.charAt(0))
+                    && isMatch(s.substring(1), p.substring(1)));
         }
     }
 }
