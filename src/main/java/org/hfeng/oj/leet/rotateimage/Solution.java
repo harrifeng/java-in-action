@@ -4,7 +4,7 @@ public class Solution {
     public void rotate(int[][] matrix) {
         int len = matrix.length;
         for (int i = 0; i < len; i++) {
-            for (int j = 0; j < len - i; j++) {
+            for (int j = 0; j < len - 1 - i; j++) {
                 swapMatrix(matrix, i, j, len - 1 - j, len - 1 - i);
             }
         }
