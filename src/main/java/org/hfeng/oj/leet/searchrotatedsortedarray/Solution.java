@@ -9,7 +9,7 @@ public class Solution {
             if (A[mid] == target) {
                 return mid;
             }
-            if (A[beg] < A[mid]) {
+            if (A[beg] <= A[mid]) {
                 //Left side is ordered
                 if (A[beg] <= target && target < A[mid]) {
                     // beg...mid-1 is strict ordered
