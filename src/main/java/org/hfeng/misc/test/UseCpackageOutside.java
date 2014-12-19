@@ -1,8 +1,12 @@
 package org.hfeng.misc.test;
 
-import org.hfeng.misc.test.packageclass.CCreator;
 
+import java.util.Arrays;
 public class UseCpackageOutside {
-    CCreator cc = new CCreator();
+
+    public static void main(String[] args) {
+        Arrays.binarySearch(args, "w");
+        System.out.println("hello");
+    }
 
 }
