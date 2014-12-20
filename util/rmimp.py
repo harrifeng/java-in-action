@@ -27,6 +27,7 @@ class SolutionFile(object):
         leet_fd = os.path.join(root_fd, ('src/main/java/org/hfeng/oj/leet'))
         files = os.listdir(leet_fd)
         files.sort()
+        files.remove('util')
         for i, p in enumerate(files):
             print i, p
 
