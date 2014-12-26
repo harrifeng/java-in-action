@@ -1,6 +1,11 @@
 package org.hfeng.oj.leet.candy;
 
 public class Solution {
+    ////////////////////////////////////////////////////////////////
+    // Two way scan like 'Trapping Rain Water' in leetcode        //
+    // If the result is relative with the difference between left //
+    // and right column, use this strategy                        //
+    ////////////////////////////////////////////////////////////////
     public int candy(int[] ratings) {
         if (ratings.length == 1) {
             return 1;
