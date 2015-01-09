@@ -1,6 +1,5 @@
 package org.hfeng.oj.leet.threesumclosest;
-
-import java.util.Arrays;
+import java.util.*;
 
 public class Solution {
     public int threeSumClosest(int[] num, int target) {
@@ -9,28 +8,29 @@ public class Solution {
         }
         Arrays.sort(num);
 
-        // MISTAKE HERE
-        int closest = num[0] + num[1] + num[2];
-        for (int i = 0; i < num.length; i++) {
+        int min = num[0] + num[1] + num[2];
 
+        for (int i = 0; i < num.length; i++) {
+            if (i > 0 && num[i-1] == num[i]) {
+                continue;
+            }
             int beg = i + 1;
             int end = num.length - 1;
-
             while (beg < end) {
-                int sum = num[beg] + num[end] + num[i];
-                if (Math.abs(sum - target) < Math.abs(closest - target)) {
-                    closest = sum;
-                }
-
+                int sum = num[i] + num[beg] + num[end];
                 if (sum == target) {
                     return sum;
-                } else if (sum < target) {
+                }
+                if (sum < target) {
                     beg++;
-                } else {
+                } else if (sum > target) {
                     end--;
+                }
+                if (Math.abs(sum - target) < Math.abs(min - target)) {
+                    min = sum;
                 }
             }
         }
-        return closest;
+        return min;
     }
 }
