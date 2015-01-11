@@ -1,27 +1,18 @@
 package org.hfeng.misc.test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Solution {
-    public void printList(int[] num, int level, List<Integer> tmp, List<List<Integer>> list) {
-        if (level == num.length) {
-            System.out.println(tmp);
-            return;
-        }
-        for (int i = level; i < num.length; i++){
-            tmp.add(num[i]);
-            printList(num, level + 1, tmp, list);
-            tmp.remove(tmp.size()-1);
-        }
-    }
     public static void main(String[] args) {
-        int[][] matrix = new int[][]{ {1, 2}, {3, 4}, {5, 6}};
-
-        for (int i = 0; i < -3; i++) {
-            System.out.println("hello");
-            String s = "wewe";
+        try {
+            FileWriter file = new FileWriter(".\\util\\log.txt");
+            PrintWriter pw = new PrintWriter(file);
+            pw.write("hello");
+            pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
     }
 }
