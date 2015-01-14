@@ -3,16 +3,17 @@ package org.hfeng.misc.test;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Vector;
 
 public class Solution {
     public static void main(String[] args) {
-        try {
-            FileWriter file = new FileWriter(".\\util\\log.txt");
-            PrintWriter pw = new PrintWriter(file);
-            pw.write("hello");
-            pw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Vector<Integer> v = new Vector<Integer>();
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        map.put(1, 1);
+        map.put(2,3);
+        map.put(1, 23);
+        System.out.println("hhh" + map.get(1));
     }
 }

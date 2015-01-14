@@ -1,4 +1,4 @@
-package org.hfeng.misc;
+package org.hfeng.misc.test;
 
 class NameRunnable implements Runnable {
     public void run() {
