@@ -26,5 +26,4 @@ public class SolutionTest {
         ListNode e1 = ListNodeHelper.createListFromArray(new int[]{1, 2, 2, 4, 3, 5});
         ListNodeHelper.assertEqualList(e1, solution.partition(h1, v1));
     }
-
 }
