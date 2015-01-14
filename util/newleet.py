@@ -12,7 +12,7 @@ class Solution(object):
         src_file = os.path.join(src_fd, "Solution.java")
         test_fd = os.path.join(root_fd, ('src/test/java/org/hfeng/oj/leet' +
                                            '/%s') % pkg_name)
-        test_file = os.path.join(test_fd, "Solution.java")
+        test_file = os.path.join(test_fd, "SolutionTest.java")
         self.src_fd = src_fd
         self.test_fd = test_fd
         self.src_file = src_file
@@ -29,12 +29,6 @@ class Solution(object):
             os.mkdir(self.test_fd)
         print "---------->handling------" +  self.test_file
         open(self.test_file, 'a').close()
-        # os.mkdir(self.src)
-        # os.mkdir(self.test)
-        # print "creating files" + self.src
-        # print self.test
-
-
 
 def main():
     parser = optparse.OptionParser(__doc__.strip())
