@@ -15,5 +15,10 @@ public class Solution {
         map.put(2,3);
         map.put(1, 23);
         System.out.println("hhh" + map.get(1));
+
+        int[] nums = new int[] { 1, 2, 3, 4, 5};
+        for (int n : nums) {
+            System.out.println(n);
+        }
     }
 }
