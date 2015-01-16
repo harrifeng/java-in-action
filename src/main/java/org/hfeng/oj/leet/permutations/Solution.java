@@ -1,9 +1,6 @@
 package org.hfeng.oj.leet.permutations;
 
-import org.hfeng.tij4.util.CountingGenerator;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Solution {

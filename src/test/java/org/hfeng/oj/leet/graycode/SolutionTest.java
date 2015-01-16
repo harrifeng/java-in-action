@@ -1,11 +1,9 @@
 package org.hfeng.oj.leet.graycode;
 
-import org.hfeng.tij4.util.CountingGenerator;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
