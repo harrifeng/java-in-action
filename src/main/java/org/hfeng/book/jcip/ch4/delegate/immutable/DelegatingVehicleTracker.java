@@ -1,4 +1,4 @@
-package org.hfeng.book.jcip.ch4.immutable;
+package org.hfeng.book.jcip.ch4.delegate.immutable;
 
 
 import java.util.Collections;
