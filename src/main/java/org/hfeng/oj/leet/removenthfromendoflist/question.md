@@ -1,0 +1,7 @@
+Remove Nth Node From End of List
+----------
++ Given a linked list, remove the nth node from the end of list and returns its head
++ For example:
+  > Input: "1->2->3->4->5", n = 2;
+  >
+  > Output:"1->2->3->5"
