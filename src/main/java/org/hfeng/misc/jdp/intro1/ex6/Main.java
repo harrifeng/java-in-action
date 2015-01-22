@@ -1,4 +1,4 @@
-package org.hfeng.misc.jdp.list1.ex6;
+package org.hfeng.misc.jdp.intro1.ex6;
 
 public class Main {
     public static void main(String[] args) {

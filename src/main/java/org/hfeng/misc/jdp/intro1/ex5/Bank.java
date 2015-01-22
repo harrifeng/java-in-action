@@ -1,4 +1,4 @@
-package org.hfeng.misc.jdp.list1.ex5;
+package org.hfeng.misc.jdp.intro1.ex5;
 
 public class Bank {
     private int money;

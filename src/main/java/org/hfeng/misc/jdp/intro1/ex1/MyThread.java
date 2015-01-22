@@ -1,4 +1,4 @@
-package org.hfeng.misc.jdp.list1.ex1;
+package org.hfeng.misc.jdp.intro1.ex1;
 
 public class MyThread extends Thread {
     public void run() {
