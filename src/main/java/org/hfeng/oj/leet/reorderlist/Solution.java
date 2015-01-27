@@ -7,18 +7,36 @@ public class Solution {
         if (head == null || head.next == null || head.next.next == null) {
             return;
         }
+        ListNode slow = head;
+        ListNode fast = head;
 
-        ListNode tmp = head;
-        while (tmp.next.next != null) {
-            tmp = tmp.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        ListNode headNext = head.next;
+        // minor half need to be reversed.
+        ListNode mid = slow.next;
+        // reverse list will be in pre after finish
+        ListNode pre = null;
 
-        head.next = tmp.next;
-        head.next.next = headNext;
-        tmp.next = null;
+        ListNode last = mid;
+        while (last != null) {
+            ListNode next = last.next;
+            last.next = pre;
+            pre = last;
+            last = next;
+        }
+        slow.next = null;
 
-        reorderList(headNext);
+        while(head!= null && pre != null) {
+            ListNode nextH = head.next;
+            ListNode nextP = pre.next;
+
+            head.next = pre;
+            pre.next = nextH;
+            head = nextH;
+            pre = nextP;
+        }
     }
 }
