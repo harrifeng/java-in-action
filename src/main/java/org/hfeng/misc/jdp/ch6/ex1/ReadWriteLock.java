@@ -1,4 +1,4 @@
-package org.hfeng.misc.jdp.ch6;
+package org.hfeng.misc.jdp.ch6.ex1;
 
 public final class ReadWriteLock {
     private int readlingReaders = 0;
