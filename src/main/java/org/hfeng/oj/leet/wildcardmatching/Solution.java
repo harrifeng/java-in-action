@@ -1,32 +1,39 @@
 package org.hfeng.oj.leet.wildcardmatching;
 
+import org.hfeng.book.tij4.util.CountingGenerator;
+
 public class Solution {
     public boolean isMatch(String s, String p) {
-        String star = new String();
-        String ss = s;
-        while (s.length() > 0) {
-            if (p.length() > 0 && (p.charAt(0) == '?' || p.charAt(0) == s.charAt(0))) {
-                s = s.substring(1);
-                p = p.substring(1);
+        int sLen = 0;
+        int pLen = 0;
+
+        int starLen = Integer.MAX_VALUE;
+        int sTmpLen = sLen;
+
+        while (sLen < s.length()) {
+            if (pLen < p.length() && (p.charAt(pLen) == '?' || p.charAt(pLen) == s.charAt(sLen))) {
+                sLen++;
+                pLen++;
                 continue;
             }
-            if (p.length() > 0 && p.charAt(0) == '*') {
-                star = p;
-                p = p.substring(1);
-                ss = s;
+            if (pLen < p.length() && p.charAt(pLen) == '*') {
+                starLen = pLen++;
+                sTmpLen = sLen;
                 continue;
             }
-            if (star.length() > 0) {
-                p = star.substring(1);
-                ss = ss.substring(1);
-                s = ss;
+            if (starLen < p.length()) {
+                pLen = starLen + 1;
+                sLen = ++sTmpLen;
                 continue;
             }
             return false;
         }
-        while (p.length() > 0 && p.charAt(0) == '*') {
-            p = p.substring(1);
+
+        while (pLen < p.length() && p.charAt(pLen) == '*') {
+            pLen++;
         }
-        return p.length() == 0;
+
+        return pLen == p.length();
+
     }
 }
