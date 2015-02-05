@@ -1,18 +1,14 @@
 package org.hfeng.oj.leet.anagrams;
 
-import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
 public class SolutionTest {
     Solution solution;
