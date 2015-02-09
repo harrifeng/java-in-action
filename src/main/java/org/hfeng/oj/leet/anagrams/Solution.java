@@ -38,8 +38,4 @@ public class Solution {
         return pivot.toString();
     }
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.formalOrder("abcw"));
-    }
 }
