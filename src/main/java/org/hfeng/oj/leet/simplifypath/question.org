@@ -1,0 +1,13 @@
+* Simplify Path
+  + Given an absolute path for a file(Unix-style), simplify it
+  + For example
+    #+begin_example
+      Input:  "/home/"
+      Output: "/home/"
+
+      Input: "/a/./b/../../c/"
+      Output: "/c"
+    #+end_example
+  + Following are corner cases:
+    - "/../" should return "/"
+    - "/home//foo/" should return "/home/foo"
