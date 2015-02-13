@@ -1,38 +1,34 @@
 @startuml
-package org.hfeng.book.dpj.ch1.iterator {
-    interface Iterator {
-        +boolean hasNext()
-        +Object next()
-    }
-
-    interface Aggregate {
-        +Iterator iterator()
-    }
-
-    class BookShelf implements Aggregate {
-        -Book[] books
-        -int last
-        +Book getBookAt()
-        +void appendBook()
-        +int getLength()
-        +Iterator iterator()
-    }
-    class Book {
-        -String name
-        +String getName()
-    }
-
-    class BookShelfIterator implements Iterator {
-        -BookShelf bookShelf
-        -int index;
-        +boolean hasNext()
-        +Object next()
-    }
-
-    Aggregate --> Iterator : Create
-    BookShelf o-- Book
-    BookShelfIterator o-- BookShelf
-
+interface Iterator {
+    +boolean hasNext()
+    +Object next()
 }
 
+interface Aggregate {
+    +Iterator iterator()
+}
+
+class BookShelf implements Aggregate {
+    -Book[] books
+    -int last
+    +Book getBookAt()
+    +void appendBook()
+    +int getLength()
+    +Iterator iterator()
+}
+class Book {
+    -String name
+    +String getName()
+}
+
+class BookShelfIterator implements Iterator {
+    -BookShelf bookShelf
+    -int index;
+    +boolean hasNext()
+    +Object next()
+}
+
+Aggregate -right--> Iterator : Create
+BookShelf o-- Book
+BookShelfIterator o-- BookShelf
 @enduml
