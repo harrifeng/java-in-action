@@ -22,11 +22,3 @@ public class BookShelfIteraotr implements Iterator {
         return book;
     }
 }
-
-////////////////////////////////////////////////////
-// <===================OUTPUT===================> //
-// Around the World in 80 Days                    //
-// Bible                                          //
-// Cinderella                                     //
-// Daddy-Long-Legs                                //
-////////////////////////////////////////////////////
