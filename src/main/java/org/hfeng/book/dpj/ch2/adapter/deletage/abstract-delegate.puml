@@ -1,0 +1,22 @@
+@startuml
+
+Abstract class Target {
+    +void printWeak()
+    +void printStrong()
+}
+
+class Adaptee {
+    +void showWithParen()
+    +void showWithAster()
+}
+
+class Adapter extends Target {
+    -Banner banner;
+    +void printWeak();
+    +void printStrong();
+}
+
+class Main
+Main --> Target : Uses
+Adapter o-- Adaptee
+@enduml

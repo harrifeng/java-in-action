@@ -1,0 +1,20 @@
+@startuml
+
+interface Print {
+    +void printWeak()
+    +void printStrong()
+}
+
+class Banner {
+    +void showWithParen()
+    +void showWithAster()
+}
+
+class PrintBanner extends Banner implements Print {
+    +void printWeak();
+    +void printStrong();
+}
+
+class Main
+Main --> Print : Uses
+@enduml
