@@ -1,0 +1,22 @@
+@startuml
+
+Abstract class Print {
+    +void printWeak()
+    +void printStrong()
+}
+
+class Banner {
+    +void showWithParen()
+    +void showWithAster()
+}
+
+class PrintBanner extends Print {
+    -Banner banner;
+    +void printWeak();
+    +void printStrong();
+}
+
+class Main
+Main --> Print : Uses
+PrintBanner o-- Banner
+@enduml

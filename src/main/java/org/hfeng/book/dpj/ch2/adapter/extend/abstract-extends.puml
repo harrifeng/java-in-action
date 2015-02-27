@@ -1,0 +1,20 @@
+@startuml
+
+interface Target {
+    +void printWeak()
+    +void printStrong()
+}
+
+class Adaptee {
+    +void showWithParen()
+    +void showWithAster()
+}
+
+class Adapter extends Adaptee implements Target {
+    +void printWeak();
+    +void printStrong();
+}
+
+class Main
+Main --> Target : Uses
+@enduml
