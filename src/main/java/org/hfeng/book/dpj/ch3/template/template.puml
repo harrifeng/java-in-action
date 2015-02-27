@@ -1,0 +1,24 @@
+@startuml
+abstract class AbstractDisplay {
+    +void open()
+    +void print()
+    +void close()
+    +void display()
+}
+
+class CharDisplay extends AbstractDisplay {
+    -char ch
+    +void open()
+    +void print()
+    +void close()
+}
+
+class StringDisplay extends AbstractDisplay {
+    -String string
+    -int width
+    +void open()
+    +void print()
+    +void close()
+    -void printLine()
+}
+@enduml
