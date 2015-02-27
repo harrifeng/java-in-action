@@ -1,0 +1,7 @@
+* Add Binary
+  + Given two binary strings, return their sum (also a binary string).
+  + For example:
+    #+begin_example
+      Input: a = "11", b = "1"
+      Output: "100"
+    #+end_example
