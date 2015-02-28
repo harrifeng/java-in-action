@@ -1,0 +1,35 @@
+@startuml
+
+class Director {
+    builder
+    construct()
+}
+
+class Builder {
+    makeTile()
+    makeString()
+    makeItems()
+    getResult()
+}
+
+class TextBuilder extends Builder {
+    buffer
+    makeTitle()
+    makeString()
+    makeItems()
+    getResult()
+}
+
+class HTMLBuilder extends Builder {
+    filename
+    writer
+    makeTitle()
+    makeString()
+    makeItems()
+    getResult()
+}
+
+
+Main -right--> Director : use
+Director o--right Builder
+@enduml
