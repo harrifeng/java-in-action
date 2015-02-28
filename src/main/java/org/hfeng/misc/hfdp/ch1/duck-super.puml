@@ -1,0 +1,16 @@
+@startuml
+
+abstract class Duck {
+  +quack()
+  +swim()
+  +display()
+}
+
+class MallardDuck extends Duck{
+  +display()
+}
+
+class RedheadDuck extends Duck{
+  +display()
+}
+@enduml

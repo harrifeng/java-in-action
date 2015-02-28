@@ -1,0 +1,38 @@
+@startuml
+
+abstract class Duck{
+  +swim()
+  +display()
+}
+
+interface Flyable{
+  +fly()
+}
+
+interface Quackable{
+  +quack()
+}
+
+
+class MallardDuck extends Duck implements Flyable, Quackable {
+  +display()
+  +fly()
+  +quack()
+}
+
+class RedheadDuck extends Duck implements Flyable, Quackable {
+  +display()
+  +fly()
+  +quack()
+}
+
+class RubberDuck extends Duck implements Quackable {
+  +display()
+  +quack()
+}
+
+class DecoyDuck extends Duck{
+  +display()
+}
+
+@enduml
