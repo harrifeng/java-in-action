@@ -1,0 +1,28 @@
+@startuml
+
+abstract class Product {
+    +void use()
+}
+
+abstract class Factory {
+    +Product create()
+    Product createProduct()
+    void registerProduct()
+}
+
+class IDCard extends Product {
+    -String owner
+    +void use()
+    +String getOwner()
+}
+
+class IDCardFactory extends Factory {
+    -Vector owners
+    Product createProduct()
+    void registerProduct()
+    +Vector getOwners()
+}
+
+Factory -right--> Product : Creates
+IDCardFactory -right--> IDCard : Creates
+@enduml
