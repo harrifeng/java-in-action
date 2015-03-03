@@ -1,0 +1,29 @@
+@startuml
+
+interface Subject {
+  registerObserver()
+  removeObserver()
+  notifyObservers()
+}
+
+class ConcreteSubject implements Subject {
+  registerObserver()
+  removeObserver()
+  notifyObservers()
+
+  getState()
+  setState()
+}
+
+interface Observer {
+  update()
+}
+
+class ConcreteObserver implements Observer{
+  update()
+  otherMethods()
+}
+
+Subject -right--> Observer : observers
+
+@enduml
