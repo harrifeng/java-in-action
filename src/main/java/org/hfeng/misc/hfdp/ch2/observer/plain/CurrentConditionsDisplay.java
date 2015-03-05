@@ -1,11 +1,11 @@
 package org.hfeng.misc.hfdp.ch2.observer.plain;
 
-public class CurrentConditionDisplay implements Observer, DisplayElement {
+public class CurrentConditionsDisplay implements Observer, DisplayElement {
     private float temperate;
     private float humidity;
     private Subject weatherData;
 
-    public CurrentConditionDisplay(Subject weatherData){
+    public CurrentConditionsDisplay(Subject weatherData){
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
