@@ -1,4 +1,4 @@
-package jam;
+package org.hfeng.misc.jam;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
