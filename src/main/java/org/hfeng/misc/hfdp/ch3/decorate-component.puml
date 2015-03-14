@@ -1,0 +1,33 @@
+@startuml
+
+class Component {
+  methodA()
+  methodB()
+}
+
+class ConcreteComponent extends Component{
+  methodA()
+  methodB()
+}
+
+class Decorator extends Component {
+  methodA()
+  methodB()
+}
+
+class ConcreteDecoratorA extends Decorator {
+  Component wrappedObj
+  methodA()
+  methodB()
+  newBehavior()
+}
+
+class ConcreteDecoratorB extends Decorator {
+  Component wrappedObj
+  Object newState
+  methodA()
+  methodB()
+}
+
+Decorator ---> Component: Each decorator HAS-A a component
+@enduml
