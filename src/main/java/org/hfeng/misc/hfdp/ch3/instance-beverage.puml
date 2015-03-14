@@ -1,0 +1,37 @@
+@startuml
+
+abstract class Beverage {
+  description
+  milk
+  soy
+  mocha
+  whip
+  getDescription()
+  cost()
+  hasMilk()
+  setMilk()
+  hasSoy()
+  setSoy()
+  hasMocha()
+  setMocha()
+  hasWhip()
+  setWhip()
+}
+
+class HouseBlend extends Beverage {
+  cost()
+}
+
+class DarkRoast extends Beverage {
+  cost()
+}
+
+class Decaf extends Beverage {
+  cost()
+}
+
+class Espresso extends Beverage {
+  cost()
+}
+
+@enduml

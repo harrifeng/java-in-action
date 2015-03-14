@@ -1,0 +1,25 @@
+@startuml
+
+abstract class Beverage {
+  description
+  getDescription()
+  cost()
+}
+
+class HouseBlend extends Beverage {
+  cost()
+}
+
+class DarkRoast extends Beverage {
+  cost()
+}
+
+class Decaf extends Beverage {
+  cost()
+}
+
+class Espresso extends Beverage {
+  cost()
+}
+
+@enduml
