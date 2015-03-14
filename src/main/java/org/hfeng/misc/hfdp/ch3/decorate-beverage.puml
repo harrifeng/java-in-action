@@ -1,0 +1,53 @@
+@startuml
+
+class Beverage {
+  description
+  getDescription()
+}
+
+class HouseBlend extends Beverage{
+  cost()
+}
+
+class DarkRoast extends Beverage{
+  cost()
+}
+
+class Espresso extends Beverage{
+  cost()
+}
+
+class Decaf extends Beverage{
+  cost()
+}
+
+class CondimentDecorator extends Beverage {
+  getDescription()
+}
+
+class Milk extends CondimentDecorator {
+  Beverage beverage
+  cost()
+  getDescription()
+}
+
+class Mocha extends CondimentDecorator {
+  Beverage beverage
+  cost()
+  getDescription()
+}
+
+class Soy extends CondimentDecorator {
+  Beverage beverage
+  cost()
+  getDescription()
+}
+
+class Whip extends CondimentDecorator {
+  Beverage beverage
+  cost()
+  getDescription()
+}
+
+CondimentDecorator ---> Beverage: Each decorator HAS-A a component
+@enduml
