@@ -53,6 +53,8 @@ public class KMP {
                 ++j;
                 next[j] = k;
             } else {
+                // If next[x] value is already created, it can
+                // also be used when generating later next[x]!!
                 k = next[k];
             }
         }
