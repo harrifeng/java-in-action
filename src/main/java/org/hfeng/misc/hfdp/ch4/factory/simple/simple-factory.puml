@@ -1,0 +1,26 @@
+@startuml
+
+class pizzaStore {
+  orderPizza()
+}
+
+class SimplePizzaFactory {
+  createPizza()
+}
+
+abstract class Pizza {
+  prepare()
+  bake()
+  cut()
+  box()
+}
+
+class CheesePizza extends Pizza
+class VeggiePizza extends Pizza
+class ClamPizza extends Pizza
+class PepperoniPizza extends Pizza
+
+pizzaStore -right--> SimplePizzaFactory
+SimplePizzaFactory-right--> Pizza
+
+@enduml
