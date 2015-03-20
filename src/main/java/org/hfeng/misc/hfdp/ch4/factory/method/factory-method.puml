@@ -1,0 +1,21 @@
+@startuml
+package "The Product classes" {
+  class Pizza
+
+  class NYStyleCheesePizza extends Pizza
+  class NYStyleClamPizza extends Pizza
+
+  class ChicagoStyleCheesePizza extends Pizza
+  class ChicagoStyleClamPizza extends Pizza
+
+}
+
+package "The Creator classes" {
+  class PizzaStore
+
+  class NYPizzaStore extends PizzaStore
+  class ChicagoPizzaStore extends PizzaStore
+}
+
+
+@enduml
