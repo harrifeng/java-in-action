@@ -1,11 +1,15 @@
 package org.hfeng.oj.leet.implementstrstr;
+
 public class Solution {
     public int strStr(String haystack, String needle) {
         int i = 0;
         int j = 0;
+        if (needle == null || needle.length() == 0) {
+            return 0;
+        }
+        int[] n = getNext(needle);
 
         while (i < haystack.length() && j < needle.length()) {
-            int[] n = getNext(needle);
             if (j == -1 || haystack.charAt(i) == needle.charAt(j)) {
                 i++;
                 j++;
