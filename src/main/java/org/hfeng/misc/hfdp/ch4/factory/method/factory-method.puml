@@ -1,4 +1,12 @@
 @startuml
+
+package "The Creator classes" {
+  class PizzaStore
+
+  class NYPizzaStore extends PizzaStore
+  class ChicagoPizzaStore extends PizzaStore
+}
+
 package "The Product classes" {
   class Pizza
 
@@ -10,12 +18,12 @@ package "The Product classes" {
 
 }
 
-package "The Creator classes" {
-  class PizzaStore
 
-  class NYPizzaStore extends PizzaStore
-  class ChicagoPizzaStore extends PizzaStore
-}
+note "<b>Abstract</b> Factory produces <b>Abstract</b> Product." as N1
+PizzaStore .. N1
+N1 .. Pizza
 
-
+note "<b>Concrete</b> Factory produces <b>Concrete</b> Product." as N2
+NYPizzaStore .. N2
+N2 .. NYStyleClamPizza
 @enduml
