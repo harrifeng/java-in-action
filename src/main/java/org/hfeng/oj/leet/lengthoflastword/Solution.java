@@ -2,20 +2,21 @@ package org.hfeng.oj.leet.lengthoflastword;
 
 public class Solution {
     public int lengthOfLastWord(String s) {
-        int len = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != ' ') {
-                ++len;
-            } else if (s.charAt(i) == ' ') {
-                while (i < s.length() - 1 && s.charAt(i + 1) == ' ') {
-                    i++;
-                }
-                if (i == s.length() - 1) {
-                    return len;
-                }
-                len = 0;
-            }
+        if (s.length() == 0) {
+            return 0;
         }
-        return len;
+
+        StringBuilder sb = new StringBuilder();
+        int len = s.length() - 1;
+        while (len >= 0 && s.charAt(len) == ' ') {
+            len--;
+        }
+        for (int i = len; i >= 0; i--) {
+            if (s.charAt(i) == ' ') {
+                break;
+            }
+            sb.insert(0, s.charAt(i));
+        }
+        return sb.length();
     }
 }
