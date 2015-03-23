@@ -5,7 +5,7 @@ public class ClamPizza extends Pizza{
         name = "Clam Pizza";
         dough = "Thin crust";
         sauce = "White garlic sauce";
-        toppings.add("Clams");
+        toppings.add("Clam");
         toppings.add("Crated parmesan cheese");
     }
 }
