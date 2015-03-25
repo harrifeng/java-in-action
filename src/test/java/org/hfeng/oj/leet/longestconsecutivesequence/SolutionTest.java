@@ -22,6 +22,14 @@ public class SolutionTest {
     public void testLongestConsecutive() throws Exception {
         int[] a1 = {100, 4, 200, 1, 3, 2};
         int r1 = 4;
-        assertEquals(4, solution.longestConsecutive(a1));
+        assertEquals(r1, solution.longestConsecutive(a1));
+
+        int[] a2 = {1, 2, 0, 1};
+        int r2 = 3;
+        assertEquals(r2, solution.longestConsecutive(a2));
+
+        int[] a3 = {1, 3, 5, 2, 4};
+        int r3 = 5;
+        assertEquals(r3, solution.longestConsecutive(a3));
     }
 }
