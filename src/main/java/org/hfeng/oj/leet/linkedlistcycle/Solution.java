@@ -1,18 +1,14 @@
 package org.hfeng.oj.leet.linkedlistcycle;
-
 import org.hfeng.oj.leet.util.ListNode;
 
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if (head == null) {
-            return false;
-        }
-
-        ListNode slow = head;
         ListNode fast = head;
+        ListNode slow = head;
+
         while (fast != null && fast.next != null) {
-            slow = slow.next;
             fast = fast.next.next;
+            slow = slow.next;
             if (slow == fast) {
                 return true;
             }
