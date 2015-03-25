@@ -4,24 +4,22 @@ import org.hfeng.oj.leet.util.ListNode;
 
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        ListNode slow = head;
         ListNode fast = head;
+        ListNode slow = head;
+        ListNode newSlow = head;
 
         while (fast != null && fast.next != null) {
-            slow = slow.next;
             fast = fast.next.next;
+            slow = slow.next;
 
-            if (slow == fast) {
-                ListNode slow2 = head;
-
-                while (slow2 != slow) {
-                    slow2 = slow2.next;
+            if (fast == slow) {
+                while (newSlow != slow) {
+                    newSlow = newSlow.next;
                     slow = slow.next;
                 }
-                return slow2;
+                return newSlow;
             }
         }
-
         return null;
     }
 }
