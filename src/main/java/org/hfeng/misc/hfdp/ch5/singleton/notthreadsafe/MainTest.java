@@ -9,19 +9,21 @@ public class MainTest {
     }
 }
 
-/////////////////////////////////////////////////////////
-// <===================OUTPUT===================>      //
-// Creating unique instance of Chocolate Boiler        //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// Returning instance of Chocolate Boiler              //
-// We boiled already! NO MORE Boil should ever happen! //
-// We boiled already! NO MORE Boil should ever happen! //
-// We boiled already! NO MORE Boil should ever happen! //
-/////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+// <===================OUTPUT===================>                         //
+// Creating unique instance of Chocolate Boiler, should happen only once! //
+// Returning instance of Chocolate Boiler                                 //
+// Filling                                                                //
+// Returning instance of Chocolate Boiler                                 //
+// Creating unique instance of Chocolate Boiler, should happen only once! //
+// Returning instance of Chocolate Boiler                                 //
+// Filling                                                                //
+// Returning instance of Chocolate Boiler                                 //
+// We boiled already! NO MORE Boil should ever happen!                    //
+// Creating unique instance of Chocolate Boiler, should happen only once! //
+// Returning instance of Chocolate Boiler                                 //
+// Filling                                                                //
+// Returning instance of Chocolate Boiler                                 //
+// We boiled already! NO MORE Boil should ever happen!                    //
+// We boiled already! NO MORE Boil should ever happen!                    //
+////////////////////////////////////////////////////////////////////////////

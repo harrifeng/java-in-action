@@ -2,7 +2,7 @@ package org.hfeng.misc.hfdp.ch5.singleton.threadsafe;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class ChocolateBoiler implements Runnable {
+public class ChocolateBoiler {
 	private boolean empty;
 	private boolean boiled;
 	private static ChocolateBoiler uniqueInstance;
@@ -12,9 +12,10 @@ public class ChocolateBoiler implements Runnable {
 		boiled = false;
 	}
 
-	public static ChocolateBoiler getInstance() {
+	public static synchronized ChocolateBoiler getInstance() throws Exception{
 		if (uniqueInstance == null) {
-			System.out.println("Creating unique instance of Chocolate Boiler");
+	        SECONDS.sleep(1);
+			System.out.println("Creating unique instance of Chocolate Boiler, should happen only once!");
 			uniqueInstance = new ChocolateBoiler();
 		}
 		System.out.println("Returning instance of Chocolate Boiler");
@@ -25,21 +26,20 @@ public class ChocolateBoiler implements Runnable {
 		if (isEmpty()) {
 			empty = false;
 			boiled = false;
-			// fill the boiler with a milk/chocolate mixture
+            System.out.println("Filling");
 		}
 	}
 
 	public void drain() {
 		if (!isEmpty() && isBoiled()) {
-			// drain the boiled milk and chocolate
 			empty = true;
+            System.out.println("Empty!");
 		}
 	}
 
-	public void boil() throws Exception{
+	public void boil() {
 		if (!isEmpty() && !isBoiled()) {
 			// bring the contents to a boil
-			SECONDS.sleep(1);
 			boiled = true;
             System.out.println("We boiled already! NO MORE Boil should ever happen!");
 		}
@@ -53,12 +53,4 @@ public class ChocolateBoiler implements Runnable {
 		return boiled;
 	}
 
-    public void run() {
-        getInstance().fill();
-		try {
-			getInstance().boil();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
 }
