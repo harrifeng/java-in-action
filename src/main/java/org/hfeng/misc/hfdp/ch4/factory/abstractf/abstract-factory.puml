@@ -1,0 +1,39 @@
+@startuml
+
+interface AbstractFactory {
+  CreateProductA()
+  CreateProductB()
+}
+
+class ConcreteFactory1 implements AbstractFactory {
+  CreateProductA()
+  CreateProductB()
+}
+
+class ConcreteFactory2 implements AbstractFactory {
+  CreateProductA()
+  CreateProductB()
+}
+
+
+interface AbstractProductA
+class ProductA1 implements AbstractProductA
+class ProductA2 implements AbstractProductA
+
+interface AbstractProductB
+class ProductB1 implements AbstractProductB
+class ProductB2 implements AbstractProductB
+
+ConcreteFactory1 --> ProductA1
+ConcreteFactory1 --> ProductB1
+
+ConcreteFactory2 --> ProductA2
+ConcreteFactory2 --> ProductB2
+
+Client -down-> AbstractFactory
+Client -down-> AbstractProductA
+Client -down-> AbstractProductB
+
+note right of Client : Client is written against \nthe abstract factory and\nthen at runtime with an \nactual factory
+
+@enduml
