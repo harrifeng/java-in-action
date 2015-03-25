@@ -1,7 +1,5 @@
 package org.hfeng.misc.hfdp.ch5.singleton.notthreadsafe;
 
-import org.hfeng.misc.hfdp.ch5.singleton.threadsafe.*;
-
 public class BoilerRunnable implements Runnable {
     public void run() {
         try {
