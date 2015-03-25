@@ -1,38 +1,41 @@
+///////////////////////////////////////////////////////////////////////////
+// Be careful: a consecutive sequence length Need only be accurat at end //
+///////////////////////////////////////////////////////////////////////////
+
 package org.hfeng.oj.leet.longestconsecutivesequence;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Solution {
     public int longestConsecutive(int[] num) {
-        if (num.length == 0) {
-            return 0;
-        }
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-
-        int len = 1;
-
+        int maxV = 0;
         for (int i = 0; i < num.length; i++) {
+            int sum = 0;
             if (map.containsKey(num[i])) {
                 continue;
             }
-            map.put(num[i], 1);
+
             if (map.containsKey(num[i] - 1)) {
-                len = Math.max(len, mergeCluster(map, num[i] - 1, num[i]));
+                int now = map.get(num[i] - 1);
+                sum += now;
             }
             if (map.containsKey(num[i] + 1)) {
-                len = Math.max(len, mergeCluster(map, num[i], num[i] + 1));
+                int now = map.get(num[i] + 1);
+                sum += now;
             }
-        }
-        return len;
-    }
 
-    private int mergeCluster(Map<Integer, Integer> map, int left, int right) {
-        int upper = right + map.get(right) - 1;
-        int lower = left - map.get(left) + 1;
-        int length = upper - lower + 1;
-        map.put(upper, length);
-        map.put(lower, length);
-        return length;
+            if (map.containsKey(num[i] - 1)) {
+                int now = map.get(num[i] - 1);
+                map.put(num[i] - now, 1 + sum);
+            }
+            if (map.containsKey(num[i] + 1)) {
+                int now = map.get(num[i] + 1);
+                map.put(num[i] + now, 1 + sum);
+            }
+            map.put(num[i], sum + 1);
+            maxV = Math.max(maxV, sum + 1);
+        }
+        return maxV;
     }
 }
