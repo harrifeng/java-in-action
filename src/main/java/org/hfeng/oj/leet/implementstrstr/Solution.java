@@ -10,6 +10,10 @@ public class Solution {
         int[] n = getNext(needle);
 
         while (i < haystack.length() && j < needle.length()) {
+            ////////////////////////////////////////////////////////
+            // Here you will understand that j == -1 means first  //
+            // characters from s and p are NOT match, move the s  //
+            ////////////////////////////////////////////////////////
             if (j == -1 || haystack.charAt(i) == needle.charAt(j)) {
                 i++;
                 j++;
@@ -34,6 +38,7 @@ public class Solution {
             if (k == -1 || pattern.charAt(j) == pattern.charAt(k)) {
                 ++k;
                 ++j;
+                // The only one can be -1 is next[0]
                 next[j] = k;
             } else {
                 k = next[k];
