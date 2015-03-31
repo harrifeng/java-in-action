@@ -1,33 +1,34 @@
 package org.hfeng.oj.leet.permutations;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
     public List<List<Integer>> permute(int[] num) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        doPermute(num, 0, ret);
+        doPermute(ret, 0, num);
         return ret;
     }
 
-    private void doPermute(int[] num, int level, List<List<Integer>> ret) {
+    private void doPermute(List<List<Integer>> result, int level, int[] num) {
         if (level == num.length) {
-            List<Integer> ll = new ArrayList<Integer>();
+            List<Integer> one = new ArrayList<Integer>();
             for (int i = 0; i < num.length; i++) {
-                ll.add(num[i]);
+                one.add(num[i]);
             }
-            ret.add(ll);
+            result.add(one);
             return;
         }
+
         for (int i = level; i < num.length; i++) {
-            swap(num, level, i);
-            doPermute(num, level + 1, ret);
-            swap(num, level, i);
+            swap(num, i, level);
+            doPermute(result, level + 1, num);
+            swap(num, i, level);
         }
     }
+
     private void swap(int[] num, int a, int b) {
         int tmp = num[a];
         num[a] = num[b];
         num[b] = tmp;
+        return;
     }
 }
