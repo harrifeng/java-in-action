@@ -1,3 +1,2 @@
-Quick Sort
-----------
-+ Implemented QuickSort
+* Quick Sort
+  + Implemented QuickSort
