@@ -1,36 +1,32 @@
 package org.hfeng.oj.leet.quicksort;
 
 public class Solution {
-
     public void quickSort(int[] num) {
-        quickSortSub(num, 0, num.length - 1);
+        doQuickSort(num, 0, num.length - 1);
     }
 
-    private void quickSortSub(int[] num, int left, int right) {
-        if (left < right) {
-            int index = partition(num, left, right);
-            quickSortSub(num, left, index - 1);
-            quickSortSub(num, index, right);
+    private void doQuickSort(int[] num, int beg, int end) {
+        if (beg < end) {
+            int mid = partition(num, beg, end);
+            doQuickSort(num, beg, mid - 1);
+            doQuickSort(num, mid + 1, end);
         }
     }
 
-    private void swap(int[] num, int left, int right) {
-        int tmp = num[left];
-        num[left] = num[right];
-        num[right] = tmp;
-    }
-
-    private int partition(int[] num, int left, int right) {
-        int pivot = num[right];
-        int i = left - 1;
-        int j = left;
-        for (; j < right; j++) {
-            if (num[j] <= pivot) {
-                i++;
-                swap(num, i, j);
+    private int partition(int[] num, int beg, int end) {
+        int pivot = num[end];
+        int j = beg -1, i = beg;
+        for (; i < end; i++) {
+            if (num[i] < pivot) {
+                j++;
+                int tmp = num[i];
+                num[i] = num[j];
+                num[j] = tmp;
             }
         }
-        swap(num, i + 1, right);
-        return i + 1;
+        int tmp = num[end];
+        num[end] = num[j+1];
+        num[j+1] = tmp;
+        return j + 1;
     }
 }
