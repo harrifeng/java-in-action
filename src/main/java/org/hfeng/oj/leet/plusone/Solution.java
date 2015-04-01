@@ -1,20 +1,26 @@
 package org.hfeng.oj.leet.plusone;
 
-class Solution {
+import java.util.*;
+
+public class Solution {
     public int[] plusOne(int[] digits) {
-        for (int i = digits.length - 1; i >= 0; i--) {
-            if (digits[i] != 9) {
-                digits[i]++;
-                return digits;
+        int pos = digits.length - 1;
+        while (pos >= 0) {
+            if (digits[pos] == 9) {
+                digits[pos] = 0;
+                pos --;
             } else {
-                digits[i] = 0;
+                break;
             }
         }
-        // only plus one, so only 9999 need extra
-        // array, and the new array value will always
-        // be 10000
-        int[] ret = new int[digits.length+1];
-        ret[0] = 1;
-        return ret;
+        // all elements are '9'
+        if (pos == -1) {
+            int[] ret = new int[digits.length + 1];
+            Arrays.fill(ret, 0);
+            ret[0] = 1;
+            return ret;
+        }
+        ++digits[pos];
+        return digits;
     }
 }
