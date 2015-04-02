@@ -1,16 +1,16 @@
 package org.hfeng.oj.leet.removeduplicatefromsortedarraytwo;
-
 public class Solution {
     public int removeDuplicates(int[] A) {
         if (A.length <= 2) {
             return A.length;
         }
-        int start = 2;
+
+        int start = 1;
         for (int i = 2; i < A.length; i++) {
-            if (A[start - 2] != A[i]) {
-                A[start++] = A[i];
+            if (A[start - 1] != A[i]) {
+                A[++start] = A[i];
             }
         }
-        return start;
+        return start + 1;
     }
 }
