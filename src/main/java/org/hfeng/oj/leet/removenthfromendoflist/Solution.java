@@ -5,30 +5,30 @@ import org.hfeng.oj.leet.util.ListNode;
 public class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
 
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode after = head;
-        ListNode before = head;
+        if (head == null) {
+            return null;
+        }
+
+        ListNode front = head;
 
         for (int i = 0; i < n; i++) {
-            after = after.next;
+            if (front == null) {
+                return null;
+            }
+            front = front.next;
         }
 
-        // remove the first node!
-        if (after == null) {
-            dummy.next = dummy.next.next;
-            return dummy.next;
+        // Remove the first one
+        if (front == null) {
+            return head.next;
         }
 
-        // here you can say after has next
-        while (after.next != null) {
-            after = after.next;
-            before = before.next;
+        ListNode back = head;
+        while (front.next != null) {
+            front = front.next;
+            back = back.next;
         }
-
-        before.next = before.next.next;
-
-        return dummy.next;
-
+        back.next = back.next.next;
+        return head;
     }
 }
