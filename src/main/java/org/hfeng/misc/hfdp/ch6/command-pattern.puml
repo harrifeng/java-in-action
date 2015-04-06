@@ -1,0 +1,26 @@
+@startuml
+
+interface Command {
+  execute()
+  undo()
+}
+
+class ConcreteCommand implements Command{
+  execute()
+  undo()
+}
+
+class Invoker {
+  setCommand()
+}
+
+class Receiver {
+  action()
+}
+
+Invoker -right--> Command :has one
+ConcreteCommand -left--> Receiver :has one
+Client -right--> Receiver : creating Receiver
+Client -right--> ConcreteCommand : creating ConcreteCommand and setting its Receiver: Light
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+interface Command {
+  execute()
+}
+
+class LightOnCommand implements Command{
+  execute()
+}
+
+class SimpleRemoteControl {
+  Command slot
+  setCommand()
+  buttonWasPressed()
+}
+
+class Light {
+  on()
+  off()
+}
+
+SimpleRemoteControl -right--> Command :has one
+LightOnCommand -left--> Light :has one
+Client -right--> Light : creating Light
+Client -right--> LightOnCommand : creating LightCommand and setting its Receiver: Light
+note top of SimpleRemoteControl : This is Invoker
+note bottom of LightOnCommand : Thi is ConcreteCommand
+note bottom of Light : This is Reciver
+@enduml
