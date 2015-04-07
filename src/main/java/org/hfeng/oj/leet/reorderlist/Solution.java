@@ -1,42 +1,41 @@
 package org.hfeng.oj.leet.reorderlist;
 
-import org.hfeng.oj.leet.util.ListNode;
+import org.hfeng.oj.leet.util.*;
+import java.util.*;
 
 public class Solution {
     public void reorderList(ListNode head) {
         if (head == null || head.next == null || head.next.next == null) {
-            return;
+            return ;
         }
-        ListNode slow = head;
-        ListNode fast = head;
+        ListNode oneStep = head;
+        ListNode twoStep = head;
 
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
+        while (twoStep != null && twoStep.next != null) {
+            twoStep = twoStep.next.next;
+            oneStep = oneStep.next;
         }
 
-        // minor half need to be reversed.
-        ListNode mid = slow.next;
-        // reverse list will be in pre after finish
-        ListNode pre = null;
+        ListNode half = oneStep.next;
+        oneStep.next = null;
 
-        ListNode last = mid;
-        while (last != null) {
-            ListNode next = last.next;
-            last.next = pre;
-            pre = last;
-            last = next;
+        Stack<ListNode> stack = new Stack<ListNode>();
+        while (half != null) {
+            stack.push(half);
+            half = half.next;
         }
-        slow.next = null;
 
-        while(head!= null && pre != null) {
-            ListNode nextH = head.next;
-            ListNode nextP = pre.next;
+        ListNode tmp = head;
 
-            head.next = pre;
-            pre.next = nextH;
-            head = nextH;
-            pre = nextP;
+        while (head != null) {
+            ListNode oldRight = head.next;
+            if (stack.empty()) {
+                break;
+            }
+            head.next = stack.pop();
+            head.next.next = oldRight;
+            head = oldRight;
         }
+        head = tmp;
     }
 }
