@@ -1,30 +1,26 @@
 package org.hfeng.oj.leet.palindromenumber;
 
 public class Solution {
-    public boolean isPalindrome(int x){
+    public boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
         }
-
-        if (x < 10) {
-            return true;
-        }
-
         int tmp = x;
-        int times = 1;
+        int count = 1;
+
         while (tmp >= 10) {
-            times *= 10;
-            tmp /= 10;
+            count = count * 10;
+            tmp = tmp / 10;
         }
 
-        // MISTAKE HERE
-        // 009 can be only show 9, while times always has 1 at front
-        while (times >= 10) {
-            if (x / times != x % 10) {
+        while (count >= 10) {
+            int left = x / count;
+            int right = x % 10;
+            if (left != right) {
                 return false;
             }
-            x  = x % times / 10;
-            times /= 100;
+            x = x % count / 10;
+            count = count / 100;
         }
         return true;
     }

@@ -1,27 +1,24 @@
 package org.hfeng.oj.leet.climbingstairs;
-
-//////////////////////////////////////////////////////////
-// f(n) stands for the ways to climbing n steps         //
-// In order to reach f(n), you have following two ways: //
-// + One step from f(n-1);                              //
-// + Two step from f(n-2);                              //
-// Thus, f(n) = f(n-1) + f(n-2). ==> Fabonacci          //
-//////////////////////////////////////////////////////////
-class Solution {
+class Solution{
     public int climbStairs(int n) {
-        // The definitation for fabonacci's first
-        // element is number 0th : 0
-        int prev = 0;
-        int curr = 1;
+        return fab(n);
+    }
 
-        if (n == 0) {
-            return prev;
+    private int fab(int n) {
+        if (n == 1) {
+            return 1;
         }
-        for (int i = 1; i <= n; i++) {
-            int tmp = curr;
-            curr += prev;
-            prev = tmp;
+        if (n == 2) {
+            return 2;
         }
-        return curr;
+        int f1 = 1;
+        int f2 = 2;
+        // return fab(n-1) + fab(n-2);
+        for (int i = 3; i <= n; i++) {
+            int tmp = f1;
+            f1 = f2;
+            f2 = tmp + f2;
+        }
+        return f2;
     }
 }

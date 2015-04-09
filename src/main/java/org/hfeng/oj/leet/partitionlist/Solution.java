@@ -4,25 +4,29 @@ import org.hfeng.oj.leet.util.*;
 
 public class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode left = new ListNode(-1);
-        ListNode leftMark = left;
-        ListNode right = new ListNode(-1);
-        ListNode rightMark = right;
+        if (head == null) {
+            return null;
+        }
+        ListNode small = new ListNode(-1);
+        ListNode smallTmp = small;
+
+        ListNode large = new ListNode(-1);
+        ListNode largeTmp = large;
+
+        ListNode tmp = head;
 
         while (head != null) {
             if (head.val < x) {
-                left.next = head;
-                left = head;
+                small.next = head;
+                small = small.next;
             } else {
-                right.next = head;
-                right = head;
+                large.next = head;
+                large = large.next;
             }
             head = head.next;
         }
-
-        left.next = rightMark.next;
-        // Do remember to null the last one
-        right.next = null;
-        return leftMark.next;
+        small.next = largeTmp.next;
+        large.next = null;
+        return smallTmp.next;
     }
 }
