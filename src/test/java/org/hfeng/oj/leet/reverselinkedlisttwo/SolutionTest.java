@@ -33,5 +33,12 @@ public class SolutionTest {
         ListNode e2 = ListNodeHelper.createListFromArray(new int[]{1, 6, 5, 4, 3, 2, 7, 8});
         ListNode r2 = solution.reverseBetween(h2, m2, n2);
         ListNodeHelper.assertEqualList(r2, e2);
+
+        ListNode h3 = ListNodeHelper.createListFromArray(new int[]{1, 2});
+        int m3 = 1;
+        int n3 = 2;
+        ListNode e3 = ListNodeHelper.createListFromArray(new int[]{2, 1});
+        ListNode r3 = solution.reverseBetween(h3, m3, n3);
+        ListNodeHelper.assertEqualList(r3, e3);
     }
 }
