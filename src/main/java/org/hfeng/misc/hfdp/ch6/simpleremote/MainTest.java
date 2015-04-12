@@ -6,11 +6,21 @@ public class MainTest {
         LightOnCommand lightOnCommand = new LightOnCommand(light);
         LightOffCommand lightOffCommand = new LightOffCommand(light);
 
-        SimpleRemoteControl simpleRemoteControl = new SimpleRemoteControl();
-        simpleRemoteControl.setCommand(lightOnCommand);
-        simpleRemoteControl.press();
+        SimpleRemoteControl SRLightOn = new SimpleRemoteControl();
+        SRLightOn.setCommand(lightOnCommand);
+        SRLightOn.press();
 
-        simpleRemoteControl.setCommand(lightOffCommand);
-        simpleRemoteControl.press();
+        SimpleRemoteControl SRLightOff = new SimpleRemoteControl();
+        SRLightOff.setCommand(lightOffCommand);
+        SRLightOff.press();
+
+        //All other 6 ONs and 6 OFFs SimpleRemoteControl instances
+        //list here ...
     }
 }
+
+////////////////////////////////////////////////////
+// <===================OUTPUT===================> //
+// Light On                                       //
+// Light Off                                      //
+////////////////////////////////////////////////////

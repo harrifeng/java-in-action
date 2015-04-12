@@ -7,6 +7,10 @@ class LightOnCommand implements Command{
   execute()
 }
 
+class LightOffCommand implements Command{
+  execute()
+}
+
 class SimpleRemoteControl {
   Command slot
   setCommand()
@@ -20,9 +24,11 @@ class Light {
 
 SimpleRemoteControl -right--> Command :has one
 LightOnCommand -left--> Light :has one
+LightOffCommand -left--> Light :has one
 Client -right--> Light : creating Light
 Client -right--> LightOnCommand : creating LightCommand and setting its Receiver: Light
 note top of SimpleRemoteControl : This is Invoker
-note bottom of LightOnCommand : Thi is ConcreteCommand
+note bottom of LightOnCommand : This is ConcreteCommand
+note bottom of LightOffCommand : This is ConcreteCommand
 note bottom of Light : This is Reciver
 @enduml
