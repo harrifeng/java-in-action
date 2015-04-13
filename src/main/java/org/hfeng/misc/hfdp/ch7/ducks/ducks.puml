@@ -1,0 +1,30 @@
+@startuml
+
+interface Duck {
+  quack()
+  fly()
+}
+
+class MallardDuck implements Duck {
+  quack()
+  fly()
+}
+
+interface Turkey {
+  gobble()
+  fly()
+}
+
+class WildTurkey implements Turkey {
+  gobble()
+  fly()
+}
+
+class TurkeyAdapter implements Duck {
+  quack()
+  fly()
+}
+
+TurkeyAdapter -left--> Turkey : has one
+
+@enduml
