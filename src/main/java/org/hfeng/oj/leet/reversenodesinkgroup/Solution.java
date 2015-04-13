@@ -1,35 +1,33 @@
 package org.hfeng.oj.leet.reversenodesinkgroup;
 
-import org.hfeng.oj.leet.util.ListNode;
+import org.hfeng.oj.leet.util.*;
 
 public class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null || head.next == null || k < 2) {
+        if (k < 2 || head == null || head.next == null) {
             return head;
         }
 
-        ListNode nextGroup = head;
+        ListNode newGroup = head;
         for (int i = 0; i < k; i++) {
-            if (nextGroup != null) {
-                nextGroup = nextGroup.next;
-            } else {
+            if (newGroup == null) {
                 return head;
             }
+            newGroup = newGroup.next;
         }
 
-        // nextGroup is the head of next group
-        // newNextGroup is the new head of next group after reversion
-        ListNode newNextGroup = reverseKGroup(nextGroup, k);
-        ListNode prev = null;
-        ListNode cur = head;
+        ListNode newGroupHead = reverseKGroup(newGroup, k);
 
-        while (cur != nextGroup) {
-            ListNode next = cur.next;
-            cur.next = prev == null ? newNextGroup : prev;
-            prev = cur;
-            cur = next;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+
+        for (int i = 0; i < k - 1; i++) {
+            ListNode tmp = head.next;
+            head.next = tmp.next;
+            tmp.next = dummy.next;
+            dummy.next = tmp;
         }
-
-        return prev; // prev will be new head of this group
+        head.next = newGroupHead;
+        return dummy.next;
     }
 }
