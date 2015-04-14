@@ -2,22 +2,27 @@ package org.hfeng.oj.leet.rotateimage;
 
 public class Solution {
     public void rotate(int[][] matrix) {
+        if (matrix.length <= 1) {
+            return;
+        }
+
         int len = matrix.length;
         for (int i = 0; i < len; i++) {
-            for (int j = 0; j < len - i; j++) {
-                swapMatrix(matrix, i, j, len - 1 - j, len - 1 - i);
+            for (int j = 0; j < len / 2; j++) {
+                swapPos(matrix, j, i, len - j - 1, i);
             }
         }
-        for (int i = 0; i < len / 2; i++) {
-            for (int j = 0; j < len; j++) {
-                swapMatrix(matrix, i, j, len - 1 - i, j);
+
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                swapPos(matrix, i, j, j, i);
             }
         }
     }
 
-    private void swapMatrix(int[][] matrix, int a1, int a2, int b1, int b2) {
-        int tmp = matrix[a1][a2];
-        matrix[a1][a2] = matrix[b1][b2];
-        matrix[b1][b2] = tmp;
+    private void swapPos(int[][] matrix, int x1, int y1, int x2, int y2) {
+        int tmp = matrix[x1][y1];
+        matrix[x1][y1] = matrix[x2][y2];
+        matrix[x2][y2] = tmp;
     }
 }
