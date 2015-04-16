@@ -1,4 +1,4 @@
-package org.hfeng.misc.hfdp.ch7.ducks;
+package org.hfeng.misc.hfdp.ch7.adapter.ducks;
 
 public class TurkeyAdapter implements Duck {
     Turkey turkey;

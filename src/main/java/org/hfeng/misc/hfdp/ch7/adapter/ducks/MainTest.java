@@ -1,4 +1,4 @@
-package org.hfeng.misc.hfdp.ch7.ducks;
+package org.hfeng.misc.hfdp.ch7.adapter.ducks;
 
 public class MainTest {
     public static void main(String[] args) {
