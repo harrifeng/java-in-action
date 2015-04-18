@@ -5,39 +5,35 @@ public class Solution {
         int beg = 0;
         int end = A.length - 1;
         while (beg <= end) {
-            int mid = (beg + end) >>> 1;
+            int mid = (beg + end) / 2;
             if (A[mid] == target) {
                 return true;
             }
             if (A[beg] < A[mid]) {
-                // left is sorted
                 if (A[beg] <= target && target < A[mid]) {
-                    end = mid - 1;
+                    end = mid;
                 } else {
                     beg = mid + 1;
                 }
-            } else if (A[beg] > A[mid]){
-                // right is sorted
+            } else if (A[mid] < A[end]) {
                 if (A[mid] < target && target <= A[end]) {
                     beg = mid + 1;
                 } else {
-                    end = mid - 1;
+                    end = mid;
                 }
             } else {
-                // skip duplicate one
-                beg++;
+                // worst case=> [1, 1, 1 , 2, 1], three are equal
+                // remove the begin and end
+                if (A[beg] == A[mid] && A[mid] == A[end]) {
+                    beg++;
+                    end--;
+                } else if (A[beg] == A[mid]) {
+                    beg = mid + 1;
+                } else if (A[mid] == A[end]){
+                    end = mid;
+                }
             }
         }
         return false;
     }
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Difference with searchrotatedsortedarray:                                                         //
-// + if duplicated elements are allowed, The logic 'A[beg] <= A[mid] will show [beg, mid] is sorted' //
-//   is not correct anymore. For example [1, 3, 1, 1, 1, 1] => (beg = 0, mid = 3)                    //
-// + so we split previous two coditions to three ones:                                               //
-//   - A[beg] < A[mid]  ==> left sorted                                                              //
-//   - A[beg] > A[mid]  ==> right sorted                                                             //
-//   - A[beg] == A[mid] ==> skip current beg (beg++)                                                 //
-///////////////////////////////////////////////////////////////////////////////////////////////////////
