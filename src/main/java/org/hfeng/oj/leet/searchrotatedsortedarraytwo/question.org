@@ -1,9 +1,10 @@
-Search in Rotated Sorted Array II
-----------
-+ Follow up for "Search in Rotated Sorted Array":
-+ What if duplicates are allowed? Would this affect the run-time complexity?
-  How and why?
-+ Write a function to determine if a given targe is in the array, For example
-  > Input: [4,5,6,6,1,2,3], target = 5
-  >
-  > Output: True
+* Search in Rotated Sorted Array II
+  + Follow up for "Search in Rotated Sorted Array":
+  + What if duplicates are allowed? Would this affect the run-time complexity?
+    How and why?
+  + Write a function to determine if a given targe is in the array, For example
+    #+begin_example
+      Input: [4,5,6,6,1,2,3], target = 5
+
+      Output: True
+    #+end_example
