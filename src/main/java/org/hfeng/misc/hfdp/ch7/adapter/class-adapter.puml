@@ -1,0 +1,20 @@
+@startuml
+
+class Client
+class Target {
+  request()
+}
+
+class Adapter extends Target {
+  request()
+}
+
+
+class Adaptee {
+  specificRequest()
+}
+
+class Adapter extends Adaptee
+
+Client  -right--> Target : only Target interface
+@enduml

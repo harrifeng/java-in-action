@@ -1,0 +1,18 @@
+@startuml
+
+class Client
+interface Target {
+  request()
+}
+
+class Adapter implements Target {
+  request()
+}
+
+class Adaptee {
+  specificRequest()
+}
+
+Adapter -right--> Adaptee : has one (composed)
+Client  -right--> Target : only Target interface
+@enduml

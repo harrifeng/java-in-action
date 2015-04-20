@@ -1,0 +1,23 @@
+@startuml
+
+interface Iterator {
+  hasNext()
+  next()
+  remove()
+}
+
+class EnumerationIterator implements Iterator{
+  hasNext()
+  next()
+  remove()
+}
+
+interface Enumeration {
+  hasMoreElements()
+  nextElement()
+}
+
+
+EnumerationIterator -right--> Enumeration : has one (composed)
+
+@enduml
