@@ -1,0 +1,13 @@
+@startuml
+
+class Amplifier
+class DvdPlayer
+class Screen
+class HomeTheaterFacade {
+  oneKeyWatchMovie()
+}
+
+HomeTheaterFacade --> Amplifier : has_a
+HomeTheaterFacade --> DvdPlayer : has_a
+HomeTheaterFacade --> Screen    : has_a
+@enduml

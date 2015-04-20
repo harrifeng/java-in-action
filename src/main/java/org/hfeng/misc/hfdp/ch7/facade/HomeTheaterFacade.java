@@ -13,7 +13,7 @@ public class HomeTheaterFacade {
         this.screen = screen;
     }
 
-    public void watchMovie() {
+    public void oneKeyWatchMovie() {
         amplifier.on();
         dvdPlayer.on();
         screen.on();

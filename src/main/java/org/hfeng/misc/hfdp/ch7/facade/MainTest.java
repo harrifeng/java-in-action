@@ -9,7 +9,7 @@ public class MainTest {
         HomeTheaterFacade homeTheaterFacade =
                 new HomeTheaterFacade(amplifier, dvdPlayer, screen);
 
-        homeTheaterFacade.watchMovie();
+        homeTheaterFacade.oneKeyWatchMovie();
     }
 }
 
