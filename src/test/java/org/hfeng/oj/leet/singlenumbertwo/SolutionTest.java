@@ -1,4 +1,4 @@
-package org.hfeng.oj.leet.singlenumertwo;
+package org.hfeng.oj.leet.singlenumbertwo;
 
 import org.junit.Test;
 import org.junit.Before;
