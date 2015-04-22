@@ -1,4 +1,4 @@
-package org.hfeng.oj.leet.singlenumertwo;
+package org.hfeng.oj.leet.singlenumbertwo;
 
 public class Solution {
     public int singleNumber(int[] A) {
