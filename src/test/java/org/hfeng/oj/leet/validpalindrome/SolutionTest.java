@@ -25,7 +25,6 @@ public class SolutionTest {
         assertTrue(solution.isPalindrome("abcdcba"));
         assertTrue(solution.isPalindrome("A man, a plan, a canal: Panama"));
         assertFalse(solution.isPalindrome("race a car"));
+        assertFalse(solution.isPalindrome("1a2"));        
     }
-
-
 }
