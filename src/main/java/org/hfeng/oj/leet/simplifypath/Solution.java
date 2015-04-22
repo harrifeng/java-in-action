@@ -1,6 +1,6 @@
 package org.hfeng.oj.leet.simplifypath;
 
-import org.hfeng.book.tij4.util.Stack;
+import java.util.Stack;
 
 public class Solution {
     public String simplifyPath(String path) {
