@@ -1,0 +1,20 @@
+@startuml
+
+abstract class CaffeineBeverage {
+  prepareRecipe()
+  brew()
+  addCondiments()
+  boilWater()
+  pourInCup()
+}
+
+class Tea extends CaffeineBeverage {
+  brew()
+  addCondiments()
+}
+
+class Coffee extends CaffeineBeverage {
+  brew()
+  addCondiments()
+}
+@enduml
