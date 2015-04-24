@@ -31,5 +31,16 @@ public class SolutionTest {
                 ".........".toCharArray(),
                 ".........".toCharArray()};
         assertEquals(false, solution.isValidSudoku(arr1));
+        char[][] arr2 = new char[][]{
+                "..4...83.".toCharArray(),
+                ".........".toCharArray(),
+                "5......9.".toCharArray(),
+                "....6....".toCharArray(),
+                "4.1.....2".toCharArray(),
+                "...7.....".toCharArray(),
+                ".........".toCharArray(),
+                ".........".toCharArray(),
+                ".........".toCharArray()};
+        assertEquals(true, solution.isValidSudoku(arr2));
     }
 }
