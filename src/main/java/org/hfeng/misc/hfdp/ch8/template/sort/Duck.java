@@ -1,7 +1,5 @@
 package org.hfeng.misc.hfdp.ch8.template.sort;
 
-
-
 public class Duck implements Comparable<Duck> {
     String name;
     int weight;
