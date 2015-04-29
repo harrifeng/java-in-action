@@ -1,7 +1,6 @@
 package org.hfeng.misc.hfdp.ch9.iterator.nojdk;
 
 import java.util.*;
-import java.util.Iterator;
 
 public class MCDMenuIterator implements Iterator {
     private ArrayList items;
