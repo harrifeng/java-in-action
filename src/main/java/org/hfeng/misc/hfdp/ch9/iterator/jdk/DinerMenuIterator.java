@@ -1,7 +1,5 @@
 package org.hfeng.misc.hfdp.ch9.iterator.jdk;
 
-
-
 import java.util.Iterator;
 
 public class DinerMenuIterator implements Iterator<MenuItem> {
