@@ -3,10 +3,10 @@ package org.hfeng.misc.hfdp.ch9.iterator.jdk;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class CafeMenu implements Menu {
+public class LunchMenu implements Menu {
     HashMap<String, MenuItem> map = new HashMap<String, MenuItem>();
 
-    public CafeMenu() {
+    public LunchMenu() {
         addItem("Veggie", 3.99);
         addItem("Burrito", 4.29);
     }

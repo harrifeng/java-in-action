@@ -3,19 +3,25 @@ package org.hfeng.misc.hfdp.ch9.iterator.jdk;
 import java.util.Iterator;
 
 public class Waitress {
+    private Menu breakfastMenu;
+    private Menu lunchMenu;
     private Menu dinerMenu;
-    private Menu cafeMenu;
 
-    public Waitress(Menu dinerMenu, Menu cafeMenu) {
+
+
+    public Waitress(Menu breakfastMenu, Menu lunchMenu, Menu dinerMenu) {
+        this.breakfastMenu = breakfastMenu;
+        this.lunchMenu = lunchMenu;
         this.dinerMenu = dinerMenu;
-        this.cafeMenu = cafeMenu;
     }
 
     public void printMenu() {
-        System.out.println("Diner-------");
+        System.out.println("Breakfast--------");
+        printMenuWithIterator(breakfastMenu.createIterator());
+        System.out.println("Lunch------------");
+        printMenuWithIterator(lunchMenu.createIterator());
+        System.out.println("Diner------------");
         printMenuWithIterator(dinerMenu.createIterator());
-        System.out.println("Cafe--------");
-        printMenuWithIterator(cafeMenu.createIterator());
     }
 
     private void printMenuWithIterator(Iterator<MenuItem> iterator) {
