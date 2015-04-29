@@ -1,4 +1,4 @@
-package org.hfeng.misc.hfdp.ch9.iterator;
+package org.hfeng.misc.hfdp.ch9.iterator.nojdk;
 
 public class MainTest {
     public static void main(String[] args) {

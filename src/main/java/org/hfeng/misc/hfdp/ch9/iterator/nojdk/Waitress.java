@@ -1,4 +1,4 @@
-package org.hfeng.misc.hfdp.ch9.iterator;
+package org.hfeng.misc.hfdp.ch9.iterator.nojdk;
 
 public class Waitress {
     private Menu kfcMenu;

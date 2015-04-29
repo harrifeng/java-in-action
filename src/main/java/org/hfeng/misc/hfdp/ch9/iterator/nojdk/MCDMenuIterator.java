@@ -1,8 +1,9 @@
-package org.hfeng.misc.hfdp.ch9.iterator;
+package org.hfeng.misc.hfdp.ch9.iterator.nojdk;
 
 import java.util.*;
+import java.util.Iterator;
 
-public class MCDMenuIterator implements Iterator{
+public class MCDMenuIterator implements Iterator {
     private ArrayList items;
     private int position = 0;
 

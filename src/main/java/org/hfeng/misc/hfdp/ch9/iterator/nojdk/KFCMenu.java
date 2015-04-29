@@ -1,4 +1,4 @@
-package org.hfeng.misc.hfdp.ch9.iterator;
+package org.hfeng.misc.hfdp.ch9.iterator.nojdk;
 
 public class KFCMenu implements Menu{
     private static final int MAX_ITEMS = 6;
