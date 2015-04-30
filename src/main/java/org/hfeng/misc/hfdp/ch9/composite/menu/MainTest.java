@@ -45,3 +45,36 @@ public class MainTest {
         waitress.printMenu();
     }
 }
+
+////////////////////////////////////////////////////
+// <===================OUTPUT===================> //
+// All, All menus combined                        //
+// -------------------------                      //
+//                                                //
+// Breakfast, Breakfast                           //
+// -------------------------                      //
+//  Pancake                                       //
+// (v),2.99                                       //
+// >>-- scrambled eggs                            //
+//  Regular Pancake                               //
+// 2.99                                           //
+// >>-- eggs, sausage                             //
+//                                                //
+// Lunch, Lunch                                   //
+// -------------------------                      //
+//  HotDo                                         //
+// 3.05                                           //
+// >>-- hot dog, with cheese                      //
+//                                                //
+// Dinner, Dinner                                 //
+// -------------------------                      //
+//  Burrito                                       //
+// (v),4.29                                       //
+// >>-- A large burrito, with whole pinto beans   //
+//                                                //
+// Dessert, Dessert menu is sub menu of Dinner    //
+// -------------------------                      //
+//  Sorbet                                        //
+// (v),1.89                                       //
+// >>-- A scoop of raspberry and a scoop of lime  //
+////////////////////////////////////////////////////
