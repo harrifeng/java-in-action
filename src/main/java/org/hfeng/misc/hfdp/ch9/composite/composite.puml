@@ -1,0 +1,23 @@
+@startuml
+
+abstract class Component {
+  operation()
+  add()
+  remove()
+  getChild()
+}
+
+class Leaf extends Component {
+  operation()
+}
+
+class Composite extends Component {
+  operation()
+  add()
+  remove()
+  getChild()
+}
+
+client -right---> Component : has_one
+
+@enduml

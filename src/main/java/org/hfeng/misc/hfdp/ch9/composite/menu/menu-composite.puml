@@ -1,0 +1,33 @@
+@startuml
+
+abstract class MenuComponent {
+  getName()
+  getDescription()
+  getPrice()
+  isVegetarian()
+  print()
+  add()
+  remove()
+  getChild()
+}
+
+class MenuItem extends MenuComponent {
+  getName()
+  getDescription()
+  getPrice()
+  isVegetarian()
+  print()
+}
+
+class Menu extends MenuComponent {
+  getName()
+  getDescription()
+  print()
+  add()
+  remove()
+  getChild()
+}
+
+Waitress -right---> MenuComponent : has_one
+
+@enduml

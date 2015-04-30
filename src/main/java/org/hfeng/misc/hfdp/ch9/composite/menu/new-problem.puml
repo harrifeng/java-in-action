@@ -1,0 +1,30 @@
+@startuml
+skinparam handwritten true
+
+skinparam usecase {
+	BackgroundColor SkyBlue
+	BorderColor DarkSlateGray
+
+	BackgroundColor<< MenuItem>> YellowGreen
+	BorderColor<< MenuItem >> YellowGreen
+
+	ArrowColor Olive
+	ActorBorderColor black
+	ActorFontName Courier
+
+}
+
+
+(All Menus) --> (Breakfast Menu)
+(All Menus) --> (Lunch Menu)
+(All Menus) --> (Dinner Menu)
+(Breakfast Menu) --> (1)<<MenuItem>>
+(Breakfast Menu) --> (2)<<MenuItem>>
+(Lunch Menu) --> (3)<<MenuItem>>
+(Lunch Menu) --> (4)<<MenuItem>>
+(Dinner Menu) --> (5)<<MenuItem>>
+(Dinner Menu) --> (Dessert Menu)
+(Dessert Menu) --> (6)<<MenuItem>>
+(Dessert Menu) --> (7)<<MenuItem>>
+
+@enduml
