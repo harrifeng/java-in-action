@@ -1,0 +1,36 @@
+@startuml
+
+
+interface Iterator {
+ hasNext()
+ next()
+}
+
+class KFCMenuIterator implements Iterator{
+ hasNext()
+ next()
+}
+
+class MCDMenuIterator implements Iterator{
+ hasNext()
+ next()
+}
+
+interface Menu {
+  createIterator()
+}
+
+class KFCMenu implements Menu{
+  createIterator()
+}
+class MCDMenu implements Menu{
+  createIterator()
+}
+
+class Waitress {
+  printMenu()
+}
+
+Waitress -left--> Menu : has_one
+Waitress -right-> Iterator : use
+@enduml
