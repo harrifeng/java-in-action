@@ -1,18 +1,41 @@
 package org.hfeng.oj.leet.evaluatereversepolishnotation;
 
+import java.util.ArrayList;
 import java.util.Stack;
-import java.util.Arrays;
+
 public class Solution {
     public int evalRPN(String[] tokens) {
-        Stack<String> stack = new Stack<String>();
-        String[] op = new String[] {"+", "-", "*", "/"};
+        Stack<Integer> stack = new Stack<Integer>();
+        ArrayList<String> opList = new ArrayList<String>();
+        opList.add("+");
+        opList.add("-");
+        opList.add("*");
+        opList.add("/");
 
-        for (int i = 0; i < tokens.length(); i++) {
-            if (Arrays.binarySearch(op, tokens[i]) > -1 ) {
+        for (int i = 0; i < tokens.length; i++) {
+            int opt = opList.indexOf(tokens[i]);
+            if (opt > -1) {
                 //operator
+                int right = stack.pop();
+                int left = stack.pop();
+                switch (opt) {
+                    case 0:
+                        stack.push(left + right);
+                        break;
+                    case 1:
+                        stack.push(left - right);
+                        break;
+                    case 2:
+                        stack.push(left * right);
+                        break;
+                    case 3:
+                        stack.push(left / right);
+                        break;
+                }
+            } else {
+                stack.push(Integer.parseInt(tokens[i]));
             }
         }
-
-        return 9;
+        return stack.peek();
     }
 }
