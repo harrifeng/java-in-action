@@ -1,0 +1,51 @@
+@startuml
+
+interface State {
+  insertQuarter()
+  ejectQuarter()
+  turnCrank()
+  dispense()
+}
+
+class HasQuarterState implements State {
+  insertQuarter()
+  ejectQuarter()
+  turnCrank()
+  dispense()
+}
+
+class NoQuarterState implements State {
+  insertQuarter()
+  ejectQuarter()
+  turnCrank()
+  dispense()
+}
+
+class SoldOutState implements State {
+  insertQuarter()
+  ejectQuarter()
+  turnCrank()
+  dispense()
+}
+
+class SoldState implements State {
+  insertQuarter()
+  ejectQuarter()
+  turnCrank()
+  dispense()
+}
+
+class WinnerState implements State {
+  insertQuarter()
+  ejectQuarter()
+  turnCrank()
+  dispense()
+}
+
+GumballMachine <-up-> HasQuarterState : has_one_both
+GumballMachine <-up-> NoQuarterState : has_one_both
+GumballMachine <-up-> SoldOutState : has_one_both
+GumballMachine <-up-> SoldState : has_one_both
+GumballMachine <-up-> WinnerState : has_one_both
+
+@enduml
