@@ -1,0 +1,15 @@
+@startuml
+scale 350 width
+[*] --> NoQuarter
+
+
+HasQuarter --> NoQuarter  : eject quarter
+HasQuarter --> GumballSold : turns crank
+NoQuarter  --> HasQuarter : insert quarter
+GumballSold --> NoQuarter : dispense gumball and gumballs > 0
+GumballSold --> OutOfGumballs : dispense gumball and gumballs = 0
+
+HasQuarter --> Winner: turns crank, we have a winner
+Winner --> NoQuarter: dispense 2 gumballs and gumballs > 0
+Winner --> OutOfGumballs: dispense 2 gumballs and gumballs = 0
+@enduml
