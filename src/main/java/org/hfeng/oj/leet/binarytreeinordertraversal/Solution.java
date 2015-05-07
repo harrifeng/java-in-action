@@ -20,6 +20,13 @@ public class Solution {
                 stack.push(tmp);
                 tmp = tmp.left;
             } else {
+                /////////////////////////////////////////////////////////////
+                // when tmp is null (and stack is not null), it means that //
+                // 'one part' is finished! in recursive solution, it will  //
+                // be the root == null and function will return to 'upper  //
+                // level', in our non-recursive solution 'upper level'     //
+                // correspond to stack.pop().                              //
+                /////////////////////////////////////////////////////////////
                 tmp = stack.pop();
                 ret.add(tmp.val);
                 tmp = tmp.right;
