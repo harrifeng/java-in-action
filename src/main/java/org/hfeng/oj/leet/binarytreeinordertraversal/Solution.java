@@ -6,36 +6,23 @@ import org.hfeng.oj.leet.util.TreeNode;
 
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        Map<TreeNode, Boolean> map = new HashMap<TreeNode, Boolean>();
         List<Integer> ret = new ArrayList<Integer>();
-
         if (root == null) {
             return ret;
         }
 
-        stack.push(root);
+        Stack<TreeNode> stack = new Stack<TreeNode>();
 
-        while (!stack.empty()) {
-            TreeNode now = stack.pop();
+        TreeNode tmp = root;
 
-            if (now.left == null) {
-                ret.add(now.val);
-                map.put(now, true);
-                if (now.right != null) {
-                    stack.push(now.right);
-                }
-            } else if (map.containsKey(now.left) && map.get(now.left)) {
-                ret.add(now.val);
-                map.put(now, true);
+        while (!stack.empty() || tmp != null) {
+            if (tmp != null) {
+                stack.push(tmp);
+                tmp = tmp.left;
             } else {
-                if (now.right != null) {
-                    stack.push(now.right);
-                }
-                stack.push(now);
-                if (now.left != null) {
-                    stack.push(now.left);
-                }
+                tmp = stack.pop();
+                ret.add(tmp.val);
+                tmp = tmp.right;
             }
         }
         return ret;
