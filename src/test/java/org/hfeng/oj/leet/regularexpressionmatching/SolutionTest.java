@@ -35,6 +35,8 @@ public class SolutionTest {
         assertTrue(solution.isMatch("aab", "c*a*b"));
         assertTrue(solution.isMatch("a", "."));
         assertTrue(solution.isMatch("bbba", ".*a*a"));
+        assertTrue(solution.isMatch("aaab", "a*aaab"));
+
         assertFalse(solution.isMatch("ab", ".*c"));
         assertFalse(solution.isMatch("aa", "."));
         assertFalse(solution.isMatch("acaabbaccbbacaabbbb", "a*.*b*.*a*aa*a*"));
