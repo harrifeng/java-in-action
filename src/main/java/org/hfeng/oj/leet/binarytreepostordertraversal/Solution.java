@@ -14,22 +14,22 @@ public class Solution {
         Stack<TreeNode> stack = new Stack<TreeNode>();
 
         TreeNode tmp = root;
-        boolean leftDone = false;
-        boolean rightDone = false;
+        stack.push(tmp);
+        TreeNode pre = null;
 
-        while (!stack.empty() || tmp != null) {
-            if (tmp != null) {
-                stack.push(tmp);
-                tmp = tmp.left;
+        while (!stack.empty()) {
+            if ((pre == null || pre.left == stack.peek() || pre.right == stack.peek())
+                    && stack.peek().left != null) {
+                pre = stack.peek();
+                stack.push(stack.peek().left);
+            } else if (((stack.peek().left == null && pre != stack.peek().right) || pre == stack.peek().left)
+                    && stack.peek().right != null) {
+                pre = stack.peek();
+                stack.push(stack.peek().right);
             } else {
-                if (rightDone) {
-                    tmp = stack.pop();
-                    ret.add(tmp.val);
-                    stack.pop();
-                } else {
-                    tmp = stack.peek().right;
-                    rightDone = true;
-                }
+                pre = stack.peek();
+                stack.pop();
+                ret.add(pre.val);
             }
         }
         return ret;
