@@ -36,6 +36,6 @@ public class WinnerState implements State {
     }
 
     public String toString() {
-        return "despensing two gumballs for your quarter, because YOU'RE A WINNER!";
+        return "dispensing two gumballs for your quarter, because YOU'RE A WINNER!";
     }
 }
