@@ -2,30 +2,25 @@ package org.hfeng.misc.hfdp.ch11.proxy.winner;
 
 public class MainTest {
     public static void main(String[] args) {
-        GumballMachine gumballMachine = new GumballMachine(10);
+        int count = 0;
+        if (args.length < 2) {
+            System.out.println("Usage GumballMachine <Location> <Number>");
+            System.exit(1);
+        }
 
-        System.out.println(gumballMachine);
+        count = Integer.parseInt(args[1]);
+        GumballMachine gumballMachine = new GumballMachine(args[0], count);
 
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
+        GumballMonitor monitor = new GumballMonitor(gumballMachine);
+
+        monitor.report();
     }
 }
 
-/////////////////////////////////////////////////////////////
-// <===================POSSIBLE-OUTPUT===================> //
-// Mighty Gumball, Inc.                                    //
-// Java-enabled Standing Gumball Model #2004               //
-// Inventory: 10 gumballs                                  //
-// Machine is waiting for quarter                          //
-//                                                         //
-// You inserted a quarter                                  //
-// You turned...                                           //
-// YOU'RE A WINNER! You get two gumballs for your quarter  //
-// A gumball comes rolling out the slot...                 //
-// A gumball comes rolling out the slot...                 //
-// You inserted a quarter                                  //
-// You turned...                                           //
-// A gumball comes rolling out the slot...                 //
-/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+// <===================OUTPUT===================> //
+// > java MainTest Seattle 112                    //
+// Gumball Machine: Seattle                       //
+// Current inventory: 112 gumballs                //
+// Current state: waiting for quarter             //
+////////////////////////////////////////////////////
