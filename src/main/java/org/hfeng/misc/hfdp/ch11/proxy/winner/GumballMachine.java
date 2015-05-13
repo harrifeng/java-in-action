@@ -1,4 +1,4 @@
-package org.hfeng.misc.hfdp.ch10.state.winner;
+package org.hfeng.misc.hfdp.ch11.proxy.winner;
 
 public class GumballMachine {
     State soldOutState;
@@ -9,7 +9,6 @@ public class GumballMachine {
 
     State state = soldState;
     int count = 0;
-
     public State getSoldState() {
         return soldState;
     }
