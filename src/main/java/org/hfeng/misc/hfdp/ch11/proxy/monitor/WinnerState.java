@@ -1,4 +1,4 @@
-package org.hfeng.misc.hfdp.ch11.proxy.winner;
+package org.hfeng.misc.hfdp.ch11.proxy.monitor;
 
 public class WinnerState implements State {
     GumballMachine gumballMachine;
