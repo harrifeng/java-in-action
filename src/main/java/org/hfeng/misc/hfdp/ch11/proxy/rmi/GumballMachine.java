@@ -1,6 +1,9 @@
 package org.hfeng.misc.hfdp.ch11.proxy.rmi;
 
-public class GumballMachine {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote{
     State soldOutState;
     State noQuarterState;
     State hasQuarterState;
@@ -19,7 +22,7 @@ public class GumballMachine {
         return soldState;
     }
 
-    public GumballMachine(String location, int numberGumballs) {
+    public GumballMachine(String location, int numberGumballs) throws RemoteException{
         soldOutState = new SoldOutState(this);
         noQuarterState = new NoQuarterState(this);
         hasQuarterState = new HasQuarterState(this);

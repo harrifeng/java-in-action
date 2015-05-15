@@ -1,6 +1,8 @@
 package org.hfeng.misc.hfdp.ch11.proxy.monitor;
 
-public interface State {
+import java.io.Serializable;
+
+public interface State extends Serializable{
     public void insertQuarter();
     public void ejectQuarter();
     public void turnCrank();
