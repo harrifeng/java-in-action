@@ -20,7 +20,7 @@ public class SolutionTest {
     }
 
     @Test
-    public void testIsValidPalindrome() throws Exception {
+    public void testIsValid() throws Exception {
         assertTrue(solution.isValid("()"));
         assertTrue(solution.isValid("([])"));
         assertFalse(solution.isValid("([)]"));

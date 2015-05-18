@@ -25,7 +25,7 @@ public class SolutionTest {
     }
 
     @Test
-    public void testIsValidPalindrome() throws Exception {
+    public void testPreorderTraversal() throws Exception {
         TreeNode t1 = TreeNodeHelper.createListFromArray(new int[]{1, 2, 3, 4, 5, 6, 7});
         List<Integer> e1 = new ArrayList<Integer>(Arrays.asList(new Integer[]{1, 2, 4, 5, 3, 6, 7}));
 

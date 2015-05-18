@@ -19,7 +19,7 @@ public class SolutionTest {
     }
 
     @Test
-    public void testIsValidPalindrome() throws Exception {
+    public void testLongestValidParentheses() throws Exception {
         assertEquals(2, solution.longestValidParentheses("()"));
         assertEquals(4, solution.longestValidParentheses("(())("));
         assertEquals(6, solution.longestValidParentheses("()(((()))"));
