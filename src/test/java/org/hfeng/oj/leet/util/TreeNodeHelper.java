@@ -20,13 +20,13 @@ public class TreeNodeHelper {
         while (!queue.isEmpty()) {
             TreeNode cur = queue.poll();
             if (++count < array.length) {
-                cur.left = new TreeNode(array[count]);
+                cur.left = array[count] == -1 ? null : new TreeNode(array[count]);
                 queue.offer(cur.left);
             } else {
                 cur.left = null;
             }
             if (++count < array.length) {
-                cur.right = new TreeNode(array[count]);
+                cur.right = array[count] == -1 ? null : new TreeNode(array[count]);
                 queue.offer(cur.right);
             } else {
                 cur.right = null;

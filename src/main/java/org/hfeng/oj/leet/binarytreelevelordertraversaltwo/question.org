@@ -1,0 +1,27 @@
+* Binary Tree Level Order Traversal II
+  + Given a binary tree, return the *bottom-up* level order traversal of its nodes' values
+  + For example the tree is like this:
+    #+begin_example
+                 3
+                / \
+               9   20
+                  /  \
+                 15   7
+    #+end_example
+  + level order result is this:
+    #+begin_example
+      [
+        [15, 7],
+        [9, 20],
+        [3]
+      ]
+    #+end_example
+  + Definition for a binary tree node list here:
+    #+begin_src java
+      public class TreeNode {
+          int val;
+          TreeNode left;
+          TreeNode right;
+          TreeNode(int x) { val = x; }
+      }
+    #+end_src
